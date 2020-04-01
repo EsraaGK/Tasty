@@ -9,21 +9,35 @@
 /* Begin PBXBuildFile section */
 		CE5090522434998D00027F99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090512434998D00027F99 /* AppDelegate.swift */; };
 		CE5090542434998D00027F99 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090532434998D00027F99 /* SceneDelegate.swift */; };
-		CE5090562434998D00027F99 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090552434998D00027F99 /* ViewController.swift */; };
-		CE5090592434998D00027F99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE5090572434998D00027F99 /* Main.storyboard */; };
 		CE50905B2434998F00027F99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE50905A2434998F00027F99 /* Assets.xcassets */; };
 		CE50906C2434B09000027F99 /* SplashView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE50906B2434B09000027F99 /* SplashView.xib */; };
+		CE5090702434BFB900027F99 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50906E2434BFB900027F99 /* SearchViewController.swift */; };
+		CE5090712434BFB900027F99 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE50906F2434BFB900027F99 /* SearchViewController.xib */; };
+		CE5090742434BFE700027F99 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090732434BFE700027F99 /* Coordinator.swift */; };
+		CE5090762434C02200027F99 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090752434C02200027F99 /* ApplicationCoordinator.swift */; };
+		CE5090782434C10000027F99 /* ApplicationNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090772434C10000027F99 /* ApplicationNavigationController.swift */; };
+		CE50907B2434C15800027F99 /* AppManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50907A2434C15800027F99 /* AppManger.swift */; };
+		CE50907D2434C7A100027F99 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50907C2434C7A100027F99 /* SearchCoordinator.swift */; };
+		CE50907F2434C9CE00027F99 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50907E2434C9CE00027F99 /* Container.swift */; };
+		CE5090812434CA2900027F99 /* SearchViewControllerModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090802434CA2900027F99 /* SearchViewControllerModule.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CE50904E2434998D00027F99 /* Tasty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5090512434998D00027F99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE5090532434998D00027F99 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE5090552434998D00027F99 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CE5090582434998D00027F99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE50905A2434998F00027F99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE50905F2434998F00027F99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE50906B2434B09000027F99 /* SplashView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashView.xib; sourceTree = "<group>"; };
+		CE50906E2434BFB900027F99 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		CE50906F2434BFB900027F99 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		CE5090732434BFE700027F99 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		CE5090752434C02200027F99 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		CE5090772434C10000027F99 /* ApplicationNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationNavigationController.swift; sourceTree = "<group>"; };
+		CE50907A2434C15800027F99 /* AppManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManger.swift; sourceTree = "<group>"; };
+		CE50907C2434C7A100027F99 /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
+		CE50907E2434C9CE00027F99 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		CE5090802434CA2900027F99 /* SearchViewControllerModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerModule.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +70,12 @@
 		CE5090502434998D00027F99 /* Tasty */ = {
 			isa = PBXGroup;
 			children = (
+				CE5090792434C13F00027F99 /* Services */,
+				CE5090722434BFD000027F99 /* Base */,
 				CE5090692434AF1600027F99 /* Features */,
 				CE5090682434AEB200027F99 /* AppDelegate */,
 				CE5090672434AE5000027F99 /* SupportingFiles */,
 				CE5090662434AC9100027F99 /* Resources */,
-				CE5090552434998D00027F99 /* ViewController.swift */,
-				CE5090572434998D00027F99 /* Main.storyboard */,
 			);
 			path = Tasty;
 			sourceTree = "<group>";
@@ -87,6 +101,8 @@
 			children = (
 				CE5090512434998D00027F99 /* AppDelegate.swift */,
 				CE5090532434998D00027F99 /* SceneDelegate.swift */,
+				CE5090752434C02200027F99 /* ApplicationCoordinator.swift */,
+				CE5090772434C10000027F99 /* ApplicationNavigationController.swift */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -94,6 +110,7 @@
 		CE5090692434AF1600027F99 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				CE50906D2434BF7400027F99 /* SearchViewController */,
 				CE50906A2434AFE300027F99 /* SplahScreen */,
 			);
 			path = Features;
@@ -105,6 +122,34 @@
 				CE50906B2434B09000027F99 /* SplashView.xib */,
 			);
 			path = SplahScreen;
+			sourceTree = "<group>";
+		};
+		CE50906D2434BF7400027F99 /* SearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CE50906E2434BFB900027F99 /* SearchViewController.swift */,
+				CE50906F2434BFB900027F99 /* SearchViewController.xib */,
+				CE50907C2434C7A100027F99 /* SearchCoordinator.swift */,
+				CE5090802434CA2900027F99 /* SearchViewControllerModule.swift */,
+			);
+			path = SearchViewController;
+			sourceTree = "<group>";
+		};
+		CE5090722434BFD000027F99 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				CE5090732434BFE700027F99 /* Coordinator.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		CE5090792434C13F00027F99 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CE50907A2434C15800027F99 /* AppManger.swift */,
+				CE50907E2434C9CE00027F99 /* Container.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,7 +213,7 @@
 			files = (
 				CE50906C2434B09000027F99 /* SplashView.xib in Resources */,
 				CE50905B2434998F00027F99 /* Assets.xcassets in Resources */,
-				CE5090592434998D00027F99 /* Main.storyboard in Resources */,
+				CE5090712434BFB900027F99 /* SearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,24 +244,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE5090562434998D00027F99 /* ViewController.swift in Sources */,
+				CE5090782434C10000027F99 /* ApplicationNavigationController.swift in Sources */,
+				CE5090762434C02200027F99 /* ApplicationCoordinator.swift in Sources */,
+				CE5090812434CA2900027F99 /* SearchViewControllerModule.swift in Sources */,
+				CE5090742434BFE700027F99 /* Coordinator.swift in Sources */,
+				CE5090702434BFB900027F99 /* SearchViewController.swift in Sources */,
+				CE50907D2434C7A100027F99 /* SearchCoordinator.swift in Sources */,
 				CE5090522434998D00027F99 /* AppDelegate.swift in Sources */,
 				CE5090542434998D00027F99 /* SceneDelegate.swift in Sources */,
+				CE50907F2434C9CE00027F99 /* Container.swift in Sources */,
+				CE50907B2434C15800027F99 /* AppManger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		CE5090572434998D00027F99 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CE5090582434998D00027F99 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		CE5090602434998F00027F99 /* Debug */ = {
@@ -269,7 +310,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -323,7 +364,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -340,6 +381,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5TV747AD59;
 				INFOPLIST_FILE = Tasty/SupportingFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -358,6 +400,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5TV747AD59;
 				INFOPLIST_FILE = Tasty/SupportingFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
