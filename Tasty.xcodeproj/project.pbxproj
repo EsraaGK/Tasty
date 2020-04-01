@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE0AA82A2435270700748C38 /* DetailsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0AA8242435270600748C38 /* DetailsProtocols.swift */; };
+		CE0AA82B2435270700748C38 /* DetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0AA8252435270600748C38 /* DetailsCoordinator.swift */; };
+		CE0AA82C2435270700748C38 /* DetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0AA8262435270600748C38 /* DetailsModel.swift */; };
+		CE0AA82D2435270700748C38 /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0AA8272435270600748C38 /* DetailsPresenter.swift */; };
+		CE0AA82E2435270700748C38 /* DetailsViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0AA8282435270700748C38 /* DetailsViewControllerDelegate.swift */; };
+		CE0AA82F2435270700748C38 /* DetailsViewControllerModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0AA8292435270700748C38 /* DetailsViewControllerModule.swift */; };
 		CE5090522434998D00027F99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090512434998D00027F99 /* AppDelegate.swift */; };
 		CE5090542434998D00027F99 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090532434998D00027F99 /* SceneDelegate.swift */; };
 		CE50905B2434998F00027F99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE50905A2434998F00027F99 /* Assets.xcassets */; };
@@ -37,6 +43,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE0AA8242435270600748C38 /* DetailsProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsProtocols.swift; sourceTree = "<group>"; };
+		CE0AA8252435270600748C38 /* DetailsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsCoordinator.swift; sourceTree = "<group>"; };
+		CE0AA8262435270600748C38 /* DetailsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsModel.swift; sourceTree = "<group>"; };
+		CE0AA8272435270600748C38 /* DetailsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
+		CE0AA8282435270700748C38 /* DetailsViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewControllerDelegate.swift; sourceTree = "<group>"; };
+		CE0AA8292435270700748C38 /* DetailsViewControllerModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewControllerModule.swift; sourceTree = "<group>"; };
 		CE50904E2434998D00027F99 /* Tasty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5090512434998D00027F99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE5090532434998D00027F99 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -195,6 +207,12 @@
 		CE5090822434E54700027F99 /* DetailsViewController */ = {
 			isa = PBXGroup;
 			children = (
+				CE0AA8252435270600748C38 /* DetailsCoordinator.swift */,
+				CE0AA8262435270600748C38 /* DetailsModel.swift */,
+				CE0AA8272435270600748C38 /* DetailsPresenter.swift */,
+				CE0AA8242435270600748C38 /* DetailsProtocols.swift */,
+				CE0AA8282435270700748C38 /* DetailsViewControllerDelegate.swift */,
+				CE0AA8292435270700748C38 /* DetailsViewControllerModule.swift */,
 				CE5090832434E5BA00027F99 /* DetailsViewController.swift */,
 				CE5090842434E5BA00027F99 /* DetailsViewController.xib */,
 			);
@@ -305,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE5090932434F9EB00027F99 /* BaseViewController.swift in Sources */,
+				CE0AA82F2435270700748C38 /* DetailsViewControllerModule.swift in Sources */,
 				CE5090782434C10000027F99 /* ApplicationNavigationController.swift in Sources */,
 				CE5090A12434FC0B00027F99 /* SearchPresenter.swift in Sources */,
 				CE5090942434F9EB00027F99 /* BaseModel.swift in Sources */,
@@ -313,18 +332,23 @@
 				CE5090812434CA2900027F99 /* SearchViewControllerModule.swift in Sources */,
 				CE5090A72435083C00027F99 /* SearchDataTableViewCell.swift in Sources */,
 				CE5090852434E5BB00027F99 /* DetailsViewController.swift in Sources */,
+				CE0AA82D2435270700748C38 /* DetailsPresenter.swift in Sources */,
 				CE5090742434BFE700027F99 /* Coordinator.swift in Sources */,
 				CE5090A32434FC8B00027F99 /* SearchProtocols.swift in Sources */,
 				CE5090892434E88400027F99 /* SearchViewControllerDelegate.swift in Sources */,
 				CE5090992434F9EB00027F99 /* BasePresenter.swift in Sources */,
+				CE0AA82B2435270700748C38 /* DetailsCoordinator.swift in Sources */,
 				CE50909B2434F9EB00027F99 /* BaseViewProtocol.swift in Sources */,
 				CE5090702434BFB900027F99 /* SearchViewController.swift in Sources */,
 				CE50907D2434C7A100027F99 /* SearchCoordinator.swift in Sources */,
 				CE5090522434998D00027F99 /* AppDelegate.swift in Sources */,
+				CE0AA82A2435270700748C38 /* DetailsProtocols.swift in Sources */,
+				CE0AA82E2435270700748C38 /* DetailsViewControllerDelegate.swift in Sources */,
 				CE50909A2434F9EB00027F99 /* BasePresenterProtocol.swift in Sources */,
 				CE5090542434998D00027F99 /* SceneDelegate.swift in Sources */,
 				CE50909F2434FBF300027F99 /* SearchModel.swift in Sources */,
 				CE50907F2434C9CE00027F99 /* Container.swift in Sources */,
+				CE0AA82C2435270700748C38 /* DetailsModel.swift in Sources */,
 				CE50907B2434C15800027F99 /* AppManger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

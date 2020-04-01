@@ -14,4 +14,8 @@ class Container {
         return  SearchViewControllerModule.getSearchViewController()
     }
     
+    class func getDetailsScene() -> DetailsViewController {
+        return DetailsViewControllerModule.getDetailsViewController()
+    }
+    
 }

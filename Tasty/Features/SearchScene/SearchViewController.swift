@@ -11,6 +11,7 @@ import UIKit
 class SearchViewController: UIViewController {
     var presenter: SearchPresenter?
     @IBOutlet private weak var searchTableView: UITableView!
+    weak var delegate: SearchViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +55,10 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let delegate = self.delegate else { return }
+        delegate.moveToDetails()
+    }
 }
 
 extension SearchViewController: SearchViewProtocol {

@@ -8,8 +8,8 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController {
-
+class DetailsViewController: UIViewController, DetailsViewProtocol {
+    var presenter: DetailsPresenter?
     override func viewDidLoad() {
         super.viewDidLoad()
 

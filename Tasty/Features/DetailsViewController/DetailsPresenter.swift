@@ -8,11 +8,11 @@
 
 import Foundation
 
-class SearchPresenter: BasePresenter<SearchViewController, SearchModel> {
-    var view: SearchViewProtocol
-    var model: SearchModelProtocol
+class DetailsPresenter: BasePresenter<DetailsViewController, DetailsModel> {
+    var view: DetailsViewProtocol
+    var model: DetailsModelProtocol
     
-    override init(view: SearchViewController, model: SearchModel) {
+    override init(view: DetailsViewController, model: DetailsModel) {
         self.view = view
         self.model = model
         super.init(view: view, model: model)
