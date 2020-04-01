@@ -22,6 +22,18 @@
 		CE5090812434CA2900027F99 /* SearchViewControllerModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090802434CA2900027F99 /* SearchViewControllerModule.swift */; };
 		CE5090852434E5BB00027F99 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090832434E5BA00027F99 /* DetailsViewController.swift */; };
 		CE5090862434E5BB00027F99 /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5090842434E5BA00027F99 /* DetailsViewController.xib */; };
+		CE5090892434E88400027F99 /* SearchViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090882434E88400027F99 /* SearchViewControllerDelegate.swift */; };
+		CE5090932434F9EB00027F99 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50908A2434F9EB00027F99 /* BaseViewController.swift */; };
+		CE5090942434F9EB00027F99 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50908B2434F9EB00027F99 /* BaseModel.swift */; };
+		CE5090992434F9EB00027F99 /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090902434F9EB00027F99 /* BasePresenter.swift */; };
+		CE50909A2434F9EB00027F99 /* BasePresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090912434F9EB00027F99 /* BasePresenterProtocol.swift */; };
+		CE50909B2434F9EB00027F99 /* BaseViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090922434F9EB00027F99 /* BaseViewProtocol.swift */; };
+		CE50909D2434FB7000027F99 /* BaseModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50909C2434FB7000027F99 /* BaseModelProtocol.swift */; };
+		CE50909F2434FBF300027F99 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50909E2434FBF300027F99 /* SearchModel.swift */; };
+		CE5090A12434FC0B00027F99 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090A02434FC0B00027F99 /* SearchPresenter.swift */; };
+		CE5090A32434FC8B00027F99 /* SearchProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090A22434FC8B00027F99 /* SearchProtocols.swift */; };
+		CE5090A72435083C00027F99 /* SearchDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090A52435083C00027F99 /* SearchDataTableViewCell.swift */; };
+		CE5090A82435083C00027F99 /* SearchDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5090A62435083C00027F99 /* SearchDataTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +54,18 @@
 		CE5090802434CA2900027F99 /* SearchViewControllerModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerModule.swift; sourceTree = "<group>"; };
 		CE5090832434E5BA00027F99 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		CE5090842434E5BA00027F99 /* DetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
+		CE5090882434E88400027F99 /* SearchViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerDelegate.swift; sourceTree = "<group>"; };
+		CE50908A2434F9EB00027F99 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		CE50908B2434F9EB00027F99 /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		CE5090902434F9EB00027F99 /* BasePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePresenter.swift; sourceTree = "<group>"; };
+		CE5090912434F9EB00027F99 /* BasePresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePresenterProtocol.swift; sourceTree = "<group>"; };
+		CE5090922434F9EB00027F99 /* BaseViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewProtocol.swift; sourceTree = "<group>"; };
+		CE50909C2434FB7000027F99 /* BaseModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModelProtocol.swift; sourceTree = "<group>"; };
+		CE50909E2434FBF300027F99 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
+		CE5090A02434FC0B00027F99 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		CE5090A22434FC8B00027F99 /* SearchProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProtocols.swift; sourceTree = "<group>"; };
+		CE5090A52435083C00027F99 /* SearchDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataTableViewCell.swift; sourceTree = "<group>"; };
+		CE5090A62435083C00027F99 /* SearchDataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchDataTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				CE5090822434E54700027F99 /* DetailsViewController */,
-				CE50906D2434BF7400027F99 /* SearchViewController */,
+				CE50906D2434BF7400027F99 /* SearchScene */,
 				CE50906A2434AFE300027F99 /* SplahScreen */,
 			);
 			path = Features;
@@ -129,20 +153,31 @@
 			path = SplahScreen;
 			sourceTree = "<group>";
 		};
-		CE50906D2434BF7400027F99 /* SearchViewController */ = {
+		CE50906D2434BF7400027F99 /* SearchScene */ = {
 			isa = PBXGroup;
 			children = (
+				CE5090A42435071200027F99 /* Cell */,
 				CE50906E2434BFB900027F99 /* SearchViewController.swift */,
 				CE50906F2434BFB900027F99 /* SearchViewController.xib */,
 				CE50907C2434C7A100027F99 /* SearchCoordinator.swift */,
 				CE5090802434CA2900027F99 /* SearchViewControllerModule.swift */,
+				CE5090882434E88400027F99 /* SearchViewControllerDelegate.swift */,
+				CE50909E2434FBF300027F99 /* SearchModel.swift */,
+				CE5090A02434FC0B00027F99 /* SearchPresenter.swift */,
+				CE5090A22434FC8B00027F99 /* SearchProtocols.swift */,
 			);
-			path = SearchViewController;
+			path = SearchScene;
 			sourceTree = "<group>";
 		};
 		CE5090722434BFD000027F99 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				CE50909C2434FB7000027F99 /* BaseModelProtocol.swift */,
+				CE50908B2434F9EB00027F99 /* BaseModel.swift */,
+				CE5090902434F9EB00027F99 /* BasePresenter.swift */,
+				CE5090912434F9EB00027F99 /* BasePresenterProtocol.swift */,
+				CE50908A2434F9EB00027F99 /* BaseViewController.swift */,
+				CE5090922434F9EB00027F99 /* BaseViewProtocol.swift */,
 				CE5090732434BFE700027F99 /* Coordinator.swift */,
 			);
 			path = Base;
@@ -164,6 +199,15 @@
 				CE5090842434E5BA00027F99 /* DetailsViewController.xib */,
 			);
 			path = DetailsViewController;
+			sourceTree = "<group>";
+		};
+		CE5090A42435071200027F99 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CE5090A52435083C00027F99 /* SearchDataTableViewCell.swift */,
+				CE5090A62435083C00027F99 /* SearchDataTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE50906C2434B09000027F99 /* SplashView.xib in Resources */,
+				CE5090A82435083C00027F99 /* SearchDataTableViewCell.xib in Resources */,
 				CE50905B2434998F00027F99 /* Assets.xcassets in Resources */,
 				CE5090712434BFB900027F99 /* SearchViewController.xib in Resources */,
 				CE5090862434E5BB00027F99 /* DetailsViewController.xib in Resources */,
@@ -259,15 +304,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE5090932434F9EB00027F99 /* BaseViewController.swift in Sources */,
 				CE5090782434C10000027F99 /* ApplicationNavigationController.swift in Sources */,
+				CE5090A12434FC0B00027F99 /* SearchPresenter.swift in Sources */,
+				CE5090942434F9EB00027F99 /* BaseModel.swift in Sources */,
 				CE5090762434C02200027F99 /* ApplicationCoordinator.swift in Sources */,
+				CE50909D2434FB7000027F99 /* BaseModelProtocol.swift in Sources */,
 				CE5090812434CA2900027F99 /* SearchViewControllerModule.swift in Sources */,
+				CE5090A72435083C00027F99 /* SearchDataTableViewCell.swift in Sources */,
 				CE5090852434E5BB00027F99 /* DetailsViewController.swift in Sources */,
 				CE5090742434BFE700027F99 /* Coordinator.swift in Sources */,
+				CE5090A32434FC8B00027F99 /* SearchProtocols.swift in Sources */,
+				CE5090892434E88400027F99 /* SearchViewControllerDelegate.swift in Sources */,
+				CE5090992434F9EB00027F99 /* BasePresenter.swift in Sources */,
+				CE50909B2434F9EB00027F99 /* BaseViewProtocol.swift in Sources */,
 				CE5090702434BFB900027F99 /* SearchViewController.swift in Sources */,
 				CE50907D2434C7A100027F99 /* SearchCoordinator.swift in Sources */,
 				CE5090522434998D00027F99 /* AppDelegate.swift in Sources */,
+				CE50909A2434F9EB00027F99 /* BasePresenterProtocol.swift in Sources */,
 				CE5090542434998D00027F99 /* SceneDelegate.swift in Sources */,
+				CE50909F2434FBF300027F99 /* SearchModel.swift in Sources */,
 				CE50907F2434C9CE00027F99 /* Container.swift in Sources */,
 				CE50907B2434C15800027F99 /* AppManger.swift in Sources */,
 			);

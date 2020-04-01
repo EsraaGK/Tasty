@@ -11,8 +11,10 @@ import UIKit
 class SearchViewControllerModule {
  
     class func getSearchViewController() -> SearchViewController {
-        
         let view = SearchViewController()
+        let model = SearchModel()
+        let presenter = SearchPresenter(view: view, model: model)
+        view.presenter = presenter
         return view
     }
 }
