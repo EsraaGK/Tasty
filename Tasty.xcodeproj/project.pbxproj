@@ -20,6 +20,8 @@
 		CE50907D2434C7A100027F99 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50907C2434C7A100027F99 /* SearchCoordinator.swift */; };
 		CE50907F2434C9CE00027F99 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50907E2434C9CE00027F99 /* Container.swift */; };
 		CE5090812434CA2900027F99 /* SearchViewControllerModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090802434CA2900027F99 /* SearchViewControllerModule.swift */; };
+		CE5090852434E5BB00027F99 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090832434E5BA00027F99 /* DetailsViewController.swift */; };
+		CE5090862434E5BB00027F99 /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5090842434E5BA00027F99 /* DetailsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		CE50907C2434C7A100027F99 /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
 		CE50907E2434C9CE00027F99 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		CE5090802434CA2900027F99 /* SearchViewControllerModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerModule.swift; sourceTree = "<group>"; };
+		CE5090832434E5BA00027F99 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		CE5090842434E5BA00027F99 /* DetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,7 @@
 		CE5090692434AF1600027F99 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				CE5090822434E54700027F99 /* DetailsViewController */,
 				CE50906D2434BF7400027F99 /* SearchViewController */,
 				CE50906A2434AFE300027F99 /* SplahScreen */,
 			);
@@ -150,6 +155,15 @@
 				CE50907E2434C9CE00027F99 /* Container.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		CE5090822434E54700027F99 /* DetailsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CE5090832434E5BA00027F99 /* DetailsViewController.swift */,
+				CE5090842434E5BA00027F99 /* DetailsViewController.xib */,
+			);
+			path = DetailsViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +228,7 @@
 				CE50906C2434B09000027F99 /* SplashView.xib in Resources */,
 				CE50905B2434998F00027F99 /* Assets.xcassets in Resources */,
 				CE5090712434BFB900027F99 /* SearchViewController.xib in Resources */,
+				CE5090862434E5BB00027F99 /* DetailsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +262,7 @@
 				CE5090782434C10000027F99 /* ApplicationNavigationController.swift in Sources */,
 				CE5090762434C02200027F99 /* ApplicationCoordinator.swift in Sources */,
 				CE5090812434CA2900027F99 /* SearchViewControllerModule.swift in Sources */,
+				CE5090852434E5BB00027F99 /* DetailsViewController.swift in Sources */,
 				CE5090742434BFE700027F99 /* Coordinator.swift in Sources */,
 				CE5090702434BFB900027F99 /* SearchViewController.swift in Sources */,
 				CE50907D2434C7A100027F99 /* SearchCoordinator.swift in Sources */,
