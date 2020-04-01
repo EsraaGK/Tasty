@@ -56,15 +56,23 @@
 		CE5090502434998D00027F99 /* Tasty */ = {
 			isa = PBXGroup;
 			children = (
+				CE5090662434AC9100027F99 /* Resources */,
 				CE5090512434998D00027F99 /* AppDelegate.swift */,
 				CE5090532434998D00027F99 /* SceneDelegate.swift */,
 				CE5090552434998D00027F99 /* ViewController.swift */,
 				CE5090572434998D00027F99 /* Main.storyboard */,
-				CE50905A2434998F00027F99 /* Assets.xcassets */,
 				CE50905C2434998F00027F99 /* LaunchScreen.storyboard */,
 				CE50905F2434998F00027F99 /* Info.plist */,
 			);
 			path = Tasty;
+			sourceTree = "<group>";
+		};
+		CE5090662434AC9100027F99 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CE50905A2434998F00027F99 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,6 +85,7 @@
 				CE50904A2434998D00027F99 /* Sources */,
 				CE50904B2434998D00027F99 /* Frameworks */,
 				CE50904C2434998D00027F99 /* Resources */,
+				CE5090652434AC2500027F99 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -132,6 +141,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CE5090652434AC2500027F99 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "swiftgen … \nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CE50904A2434998D00027F99 /* Sources */ = {
