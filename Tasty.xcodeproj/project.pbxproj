@@ -13,6 +13,8 @@
 		CE0AA82D2435270700748C38 /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0AA8272435270600748C38 /* DetailsPresenter.swift */; };
 		CE0AA82E2435270700748C38 /* DetailsViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0AA8282435270700748C38 /* DetailsViewControllerDelegate.swift */; };
 		CE0AA82F2435270700748C38 /* DetailsViewControllerModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0AA8292435270700748C38 /* DetailsViewControllerModule.swift */; };
+		CE0AA8332435327300748C38 /* DetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0AA8312435327300748C38 /* DetailsTableViewCell.swift */; };
+		CE0AA8342435327300748C38 /* DetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE0AA8322435327300748C38 /* DetailsTableViewCell.xib */; };
 		CE5090522434998D00027F99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090512434998D00027F99 /* AppDelegate.swift */; };
 		CE5090542434998D00027F99 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090532434998D00027F99 /* SceneDelegate.swift */; };
 		CE50905B2434998F00027F99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE50905A2434998F00027F99 /* Assets.xcassets */; };
@@ -49,6 +51,8 @@
 		CE0AA8272435270600748C38 /* DetailsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
 		CE0AA8282435270700748C38 /* DetailsViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewControllerDelegate.swift; sourceTree = "<group>"; };
 		CE0AA8292435270700748C38 /* DetailsViewControllerModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewControllerModule.swift; sourceTree = "<group>"; };
+		CE0AA8312435327300748C38 /* DetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableViewCell.swift; sourceTree = "<group>"; };
+		CE0AA8322435327300748C38 /* DetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsTableViewCell.xib; sourceTree = "<group>"; };
 		CE50904E2434998D00027F99 /* Tasty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5090512434998D00027F99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE5090532434998D00027F99 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +95,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE0AA8302435324B00748C38 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				CE0AA8312435327300748C38 /* DetailsTableViewCell.swift */,
+				CE0AA8322435327300748C38 /* DetailsTableViewCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
 		CE5090452434998D00027F99 = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +220,7 @@
 		CE5090822434E54700027F99 /* DetailsViewController */ = {
 			isa = PBXGroup;
 			children = (
+				CE0AA8302435324B00748C38 /* cell */,
 				CE0AA8252435270600748C38 /* DetailsCoordinator.swift */,
 				CE0AA8262435270600748C38 /* DetailsModel.swift */,
 				CE0AA8272435270600748C38 /* DetailsPresenter.swift */,
@@ -289,6 +303,7 @@
 			files = (
 				CE50906C2434B09000027F99 /* SplashView.xib in Resources */,
 				CE5090A82435083C00027F99 /* SearchDataTableViewCell.xib in Resources */,
+				CE0AA8342435327300748C38 /* DetailsTableViewCell.xib in Resources */,
 				CE50905B2434998F00027F99 /* Assets.xcassets in Resources */,
 				CE5090712434BFB900027F99 /* SearchViewController.xib in Resources */,
 				CE5090862434E5BB00027F99 /* DetailsViewController.xib in Resources */,
@@ -337,6 +352,7 @@
 				CE5090A32434FC8B00027F99 /* SearchProtocols.swift in Sources */,
 				CE5090892434E88400027F99 /* SearchViewControllerDelegate.swift in Sources */,
 				CE5090992434F9EB00027F99 /* BasePresenter.swift in Sources */,
+				CE0AA8332435327300748C38 /* DetailsTableViewCell.swift in Sources */,
 				CE0AA82B2435270700748C38 /* DetailsCoordinator.swift in Sources */,
 				CE50909B2434F9EB00027F99 /* BaseViewProtocol.swift in Sources */,
 				CE5090702434BFB900027F99 /* SearchViewController.swift in Sources */,

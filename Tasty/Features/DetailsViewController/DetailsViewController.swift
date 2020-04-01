@@ -10,9 +10,31 @@ import UIKit
 
 class DetailsViewController: UIViewController, DetailsViewProtocol {
     var presenter: DetailsPresenter?
+    @IBOutlet private weak var detailsImage: UIImageView!
+    @IBOutlet private weak var ingrediantTable: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        instatiateIngrediantTableView()
+    }
+    
+    func instatiateIngrediantTableView() {
+        ingrediantTable.delegate = self
+        ingrediantTable.dataSource = self
+        ingrediantTable.register(DetailsTableViewCell.nib,
+                                 forCellReuseIdentifier: DetailsTableViewCell.identifire)
+    }
+    
+}
 
-        // Do any additional setup after loading the view.
+extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailsTableViewCell.identifire)
+            as? DetailsTableViewCell else { return UITableViewCell() }
+        return cell
     }
 }
