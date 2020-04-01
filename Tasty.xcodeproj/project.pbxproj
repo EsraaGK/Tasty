@@ -12,7 +12,7 @@
 		CE5090562434998D00027F99 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090552434998D00027F99 /* ViewController.swift */; };
 		CE5090592434998D00027F99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE5090572434998D00027F99 /* Main.storyboard */; };
 		CE50905B2434998F00027F99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE50905A2434998F00027F99 /* Assets.xcassets */; };
-		CE50905E2434998F00027F99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE50905C2434998F00027F99 /* LaunchScreen.storyboard */; };
+		CE50906C2434B09000027F99 /* SplashView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE50906B2434B09000027F99 /* SplashView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,8 +22,8 @@
 		CE5090552434998D00027F99 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CE5090582434998D00027F99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE50905A2434998F00027F99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CE50905D2434998F00027F99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE50905F2434998F00027F99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE50906B2434B09000027F99 /* SplashView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,13 +56,12 @@
 		CE5090502434998D00027F99 /* Tasty */ = {
 			isa = PBXGroup;
 			children = (
+				CE5090692434AF1600027F99 /* Features */,
+				CE5090682434AEB200027F99 /* AppDelegate */,
+				CE5090672434AE5000027F99 /* SupportingFiles */,
 				CE5090662434AC9100027F99 /* Resources */,
-				CE5090512434998D00027F99 /* AppDelegate.swift */,
-				CE5090532434998D00027F99 /* SceneDelegate.swift */,
 				CE5090552434998D00027F99 /* ViewController.swift */,
 				CE5090572434998D00027F99 /* Main.storyboard */,
-				CE50905C2434998F00027F99 /* LaunchScreen.storyboard */,
-				CE50905F2434998F00027F99 /* Info.plist */,
 			);
 			path = Tasty;
 			sourceTree = "<group>";
@@ -73,6 +72,39 @@
 				CE50905A2434998F00027F99 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		CE5090672434AE5000027F99 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				CE50905F2434998F00027F99 /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		CE5090682434AEB200027F99 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				CE5090512434998D00027F99 /* AppDelegate.swift */,
+				CE5090532434998D00027F99 /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		CE5090692434AF1600027F99 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				CE50906A2434AFE300027F99 /* SplahScreen */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		CE50906A2434AFE300027F99 /* SplahScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CE50906B2434B09000027F99 /* SplashView.xib */,
+			);
+			path = SplahScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,7 +166,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE50905E2434998F00027F99 /* LaunchScreen.storyboard in Resources */,
+				CE50906C2434B09000027F99 /* SplashView.xib in Resources */,
 				CE50905B2434998F00027F99 /* Assets.xcassets in Resources */,
 				CE5090592434998D00027F99 /* Main.storyboard in Resources */,
 			);
@@ -182,14 +214,6 @@
 				CE5090582434998D00027F99 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		CE50905C2434998F00027F99 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CE50905D2434998F00027F99 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -315,7 +339,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5TV747AD59;
-				INFOPLIST_FILE = Tasty/Info.plist;
+				INFOPLIST_FILE = Tasty/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -323,7 +347,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ibtikar.esraa.gamal.Tasty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -333,7 +357,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5TV747AD59;
-				INFOPLIST_FILE = Tasty/Info.plist;
+				INFOPLIST_FILE = Tasty/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -341,7 +365,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ibtikar.esraa.gamal.Tasty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
