@@ -30,7 +30,6 @@
 		CE50907D2434C7A100027F99 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50907C2434C7A100027F99 /* SearchCoordinator.swift */; };
 		CE50907F2434C9CE00027F99 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50907E2434C9CE00027F99 /* Container.swift */; };
 		CE5090812434CA2900027F99 /* SearchViewControllerModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090802434CA2900027F99 /* SearchViewControllerModule.swift */; };
-		CE5090852434E5BB00027F99 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090832434E5BA00027F99 /* DetailsViewController.swift */; };
 		CE5090862434E5BB00027F99 /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5090842434E5BA00027F99 /* DetailsViewController.xib */; };
 		CE5090892434E88400027F99 /* SearchViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090882434E88400027F99 /* SearchViewControllerDelegate.swift */; };
 		CE5090932434F9EB00027F99 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50908A2434F9EB00027F99 /* BaseViewController.swift */; };
@@ -45,6 +44,12 @@
 		CE5090A72435083C00027F99 /* SearchDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090A52435083C00027F99 /* SearchDataTableViewCell.swift */; };
 		CE5090A82435083C00027F99 /* SearchDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5090A62435083C00027F99 /* SearchDataTableViewCell.xib */; };
 		CED191F724360CFD00EECD2D /* entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED191F624360CFD00EECD2D /* entity.swift */; };
+		CEE793DA24364DA600978856 /* DetailsTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE793D62436486500978856 /* DetailsTableViewHeader.swift */; };
+		CEE793DB243652DF00978856 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090832434E5BA00027F99 /* DetailsViewController.swift */; };
+		CEE793DC243652EB00978856 /* DetailsTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE793D8243648A500978856 /* DetailsTableViewHeader.xib */; };
+		CEE793DE24365ED000978856 /* DetailsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE793DD24365ED000978856 /* DetailsHeaderView.xib */; };
+		CEE793E024365EF400978856 /* DetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE793DF24365EF400978856 /* DetailsHeaderView.swift */; };
+		CEE793E3243663DB00978856 /* BundleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE793E2243663DB00978856 /* BundleExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +95,11 @@
 		CE5090A52435083C00027F99 /* SearchDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataTableViewCell.swift; sourceTree = "<group>"; };
 		CE5090A62435083C00027F99 /* SearchDataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchDataTableViewCell.xib; sourceTree = "<group>"; };
 		CED191F624360CFD00EECD2D /* entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = entity.swift; sourceTree = "<group>"; };
+		CEE793D62436486500978856 /* DetailsTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableViewHeader.swift; sourceTree = "<group>"; };
+		CEE793D8243648A500978856 /* DetailsTableViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsTableViewHeader.xib; sourceTree = "<group>"; };
+		CEE793DD24365ED000978856 /* DetailsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsHeaderView.xib; sourceTree = "<group>"; };
+		CEE793DF24365EF400978856 /* DetailsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsHeaderView.swift; sourceTree = "<group>"; };
+		CEE793E2243663DB00978856 /* BundleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +136,10 @@
 			children = (
 				CE0AA8312435327300748C38 /* DetailsTableViewCell.swift */,
 				CE0AA8322435327300748C38 /* DetailsTableViewCell.xib */,
+				CEE793D62436486500978856 /* DetailsTableViewHeader.swift */,
+				CEE793D8243648A500978856 /* DetailsTableViewHeader.xib */,
+				CEE793DD24365ED000978856 /* DetailsHeaderView.xib */,
+				CEE793DF24365EF400978856 /* DetailsHeaderView.swift */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -159,6 +173,7 @@
 		CE5090502434998D00027F99 /* Tasty */ = {
 			isa = PBXGroup;
 			children = (
+				CEE793E1243663A100978856 /* Extensions */,
 				CE30D1B1243629C100D6126D /* Network */,
 				CED191F524360CDC00EECD2D /* Entity */,
 				CE5090792434C13F00027F99 /* Services */,
@@ -288,6 +303,14 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		CEE793E1243663A100978856 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CEE793E2243663DB00978856 /* BundleExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -349,6 +372,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE793DE24365ED000978856 /* DetailsHeaderView.xib in Resources */,
+				CEE793DC243652EB00978856 /* DetailsTableViewHeader.xib in Resources */,
 				CE50906C2434B09000027F99 /* SplashView.xib in Resources */,
 				CE5090A82435083C00027F99 /* SearchDataTableViewCell.xib in Resources */,
 				CE0AA8342435327300748C38 /* DetailsTableViewCell.xib in Resources */,
@@ -424,6 +449,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE793DB243652DF00978856 /* DetailsViewController.swift in Sources */,
+				CEE793DA24364DA600978856 /* DetailsTableViewHeader.swift in Sources */,
 				CE5090932434F9EB00027F99 /* BaseViewController.swift in Sources */,
 				CE0AA82F2435270700748C38 /* DetailsViewControllerModule.swift in Sources */,
 				CE5090782434C10000027F99 /* ApplicationNavigationController.swift in Sources */,
@@ -433,7 +460,6 @@
 				CE50909D2434FB7000027F99 /* BaseModelProtocol.swift in Sources */,
 				CE5090812434CA2900027F99 /* SearchViewControllerModule.swift in Sources */,
 				CE5090A72435083C00027F99 /* SearchDataTableViewCell.swift in Sources */,
-				CE5090852434E5BB00027F99 /* DetailsViewController.swift in Sources */,
 				CE0AA82D2435270700748C38 /* DetailsPresenter.swift in Sources */,
 				CE5090742434BFE700027F99 /* Coordinator.swift in Sources */,
 				CED191F724360CFD00EECD2D /* entity.swift in Sources */,
@@ -441,12 +467,14 @@
 				CE5090892434E88400027F99 /* SearchViewControllerDelegate.swift in Sources */,
 				CE5090992434F9EB00027F99 /* BasePresenter.swift in Sources */,
 				CE0AA8332435327300748C38 /* DetailsTableViewCell.swift in Sources */,
+				CEE793E024365EF400978856 /* DetailsHeaderView.swift in Sources */,
 				CE0AA82B2435270700748C38 /* DetailsCoordinator.swift in Sources */,
 				CE50909B2434F9EB00027F99 /* BaseViewProtocol.swift in Sources */,
 				CE5090702434BFB900027F99 /* SearchViewController.swift in Sources */,
 				CE50907D2434C7A100027F99 /* SearchCoordinator.swift in Sources */,
 				CE5090522434998D00027F99 /* AppDelegate.swift in Sources */,
 				CE0AA82A2435270700748C38 /* DetailsProtocols.swift in Sources */,
+				CEE793E3243663DB00978856 /* BundleExtensions.swift in Sources */,
 				CE0AA82E2435270700748C38 /* DetailsViewControllerDelegate.swift in Sources */,
 				CE50909A2434F9EB00027F99 /* BasePresenterProtocol.swift in Sources */,
 				CE5090542434998D00027F99 /* SceneDelegate.swift in Sources */,

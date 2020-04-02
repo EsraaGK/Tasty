@@ -10,7 +10,7 @@ import UIKit
 
 class DetailsViewController: UIViewController, DetailsViewProtocol {
     var presenter: DetailsPresenter?
-    @IBOutlet private weak var detailsImage: UIImageView!
+    
     @IBOutlet private weak var ingrediantTable: UITableView!
     
     override func viewDidLoad() {
@@ -23,13 +23,21 @@ class DetailsViewController: UIViewController, DetailsViewProtocol {
         ingrediantTable.dataSource = self
         ingrediantTable.register(DetailsTableViewCell.nib,
                                  forCellReuseIdentifier: DetailsTableViewCell.identifire)
+//        ingrediantTable.register(DetailsTableViewHeader.nib,
+//                                 forHeaderFooterViewReuseIdentifier: DetailsTableViewHeader.identifire)
+        ingrediantTable.tableFooterView = UIView(frame: CGRect.zero)
+        let myView = Bundle.loadView(fromNib: "DetailsHeaderView", withType: DetailsHeaderView.self)
+
+        ingrediantTable.tableHeaderView = myView
+        
     }
     
 }
 
 extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 100
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -37,4 +45,16 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
             as? DetailsTableViewCell else { return UITableViewCell() }
         return cell
     }
+//    
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: DetailsTableViewHeader.identifire )
+//            as? DetailsTableViewHeader else { return DetailsTableViewHeader() }
+//
+//        return header
+//    }
+//    
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return UIScreen.main.bounds.height*0.3
+//    }
+
 }

@@ -38,6 +38,7 @@ class SearchViewController: UIViewController {
         searchTableView.register(SearchDataTableViewCell.nib,
                                  forCellReuseIdentifier: SearchDataTableViewCell.identifire)
         searchTableView.backgroundView = UIImageView(image: UIImage(named: "hhhhh"))
+        searchTableView.backgroundView = UIView(frame: CGRect.zero)
     }
     
     func instatiateSearchBar() {
@@ -59,7 +60,7 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 0
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
