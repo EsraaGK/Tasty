@@ -21,6 +21,7 @@ struct Recipe {
 }
 
 enum SearchTableStates {
+    case firstView
     case noInternet
     case noResults
     case loading
