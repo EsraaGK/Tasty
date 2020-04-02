@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33A7F73802930036F5DD1D02 /* Pods_Tasty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF05DCBE6528CB11867FED23 /* Pods_Tasty.framework */; };
 		CE0AA82A2435270700748C38 /* DetailsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0AA8242435270600748C38 /* DetailsProtocols.swift */; };
 		CE0AA82B2435270700748C38 /* DetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0AA8252435270600748C38 /* DetailsCoordinator.swift */; };
 		CE0AA82C2435270700748C38 /* DetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0AA8262435270600748C38 /* DetailsModel.swift */; };
@@ -42,9 +43,13 @@
 		CE5090A32434FC8B00027F99 /* SearchProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090A22434FC8B00027F99 /* SearchProtocols.swift */; };
 		CE5090A72435083C00027F99 /* SearchDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090A52435083C00027F99 /* SearchDataTableViewCell.swift */; };
 		CE5090A82435083C00027F99 /* SearchDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5090A62435083C00027F99 /* SearchDataTableViewCell.xib */; };
+		CED191F724360CFD00EECD2D /* entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED191F624360CFD00EECD2D /* entity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A31F83E353303E02D646CED /* Pods-Tasty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tasty.debug.xcconfig"; path = "Target Support Files/Pods-Tasty/Pods-Tasty.debug.xcconfig"; sourceTree = "<group>"; };
+		A446B08CAD757920E1B4424C /* Pods-Tasty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tasty.release.xcconfig"; path = "Target Support Files/Pods-Tasty/Pods-Tasty.release.xcconfig"; sourceTree = "<group>"; };
+		AF05DCBE6528CB11867FED23 /* Pods_Tasty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tasty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE0AA8242435270600748C38 /* DetailsProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsProtocols.swift; sourceTree = "<group>"; };
 		CE0AA8252435270600748C38 /* DetailsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsCoordinator.swift; sourceTree = "<group>"; };
 		CE0AA8262435270600748C38 /* DetailsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsModel.swift; sourceTree = "<group>"; };
@@ -82,6 +87,7 @@
 		CE5090A22434FC8B00027F99 /* SearchProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProtocols.swift; sourceTree = "<group>"; };
 		CE5090A52435083C00027F99 /* SearchDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataTableViewCell.swift; sourceTree = "<group>"; };
 		CE5090A62435083C00027F99 /* SearchDataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchDataTableViewCell.xib; sourceTree = "<group>"; };
+		CED191F624360CFD00EECD2D /* entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = entity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,12 +95,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33A7F73802930036F5DD1D02 /* Pods_Tasty.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2DCE397D0F3C3DEE6929C55E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9A31F83E353303E02D646CED /* Pods-Tasty.debug.xcconfig */,
+				A446B08CAD757920E1B4424C /* Pods-Tasty.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		51A076510384784CC2CDA473 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AF05DCBE6528CB11867FED23 /* Pods_Tasty.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CE0AA8302435324B00748C38 /* cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +134,8 @@
 			children = (
 				CE5090502434998D00027F99 /* Tasty */,
 				CE50904F2434998D00027F99 /* Products */,
+				2DCE397D0F3C3DEE6929C55E /* Pods */,
+				51A076510384784CC2CDA473 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,6 +150,7 @@
 		CE5090502434998D00027F99 /* Tasty */ = {
 			isa = PBXGroup;
 			children = (
+				CED191F524360CDC00EECD2D /* Entity */,
 				CE5090792434C13F00027F99 /* Services */,
 				CE5090722434BFD000027F99 /* Base */,
 				CE5090692434AF1600027F99 /* Features */,
@@ -242,6 +270,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		CED191F524360CDC00EECD2D /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				CED191F624360CFD00EECD2D /* entity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -249,10 +285,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE5090622434998F00027F99 /* Build configuration list for PBXNativeTarget "Tasty" */;
 			buildPhases = (
+				36CC0C7ABD9D0F7551730280 /* [CP] Check Pods Manifest.lock */,
 				CE50904A2434998D00027F99 /* Sources */,
 				CE50904B2434998D00027F99 /* Frameworks */,
 				CE50904C2434998D00027F99 /* Resources */,
 				CE5090652434AC2500027F99 /* ShellScript */,
+				4DFA20A7FDBA054DEC67B9F5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -313,6 +351,45 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		36CC0C7ABD9D0F7551730280 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Tasty-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4DFA20A7FDBA054DEC67B9F5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tasty/Pods-Tasty-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tasty/Pods-Tasty-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tasty/Pods-Tasty-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CE5090652434AC2500027F99 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -349,6 +426,7 @@
 				CE5090852434E5BB00027F99 /* DetailsViewController.swift in Sources */,
 				CE0AA82D2435270700748C38 /* DetailsPresenter.swift in Sources */,
 				CE5090742434BFE700027F99 /* Coordinator.swift in Sources */,
+				CED191F724360CFD00EECD2D /* entity.swift in Sources */,
 				CE5090A32434FC8B00027F99 /* SearchProtocols.swift in Sources */,
 				CE5090892434E88400027F99 /* SearchViewControllerDelegate.swift in Sources */,
 				CE5090992434F9EB00027F99 /* BasePresenter.swift in Sources */,
@@ -488,6 +566,7 @@
 		};
 		CE5090632434998F00027F99 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A31F83E353303E02D646CED /* Pods-Tasty.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -507,6 +586,7 @@
 		};
 		CE5090642434998F00027F99 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A446B08CAD757920E1B4424C /* Pods-Tasty.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

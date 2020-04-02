@@ -19,7 +19,7 @@ class SearchViewController: UIViewController {
         instatiateSearchTableView()
         instatiateSearchBar()
     }
-    
+
     func instatiateSearchTableView() {
         searchTableView.delegate = self
         searchTableView.dataSource = self
@@ -46,7 +46,7 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 5
+        return 9
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
