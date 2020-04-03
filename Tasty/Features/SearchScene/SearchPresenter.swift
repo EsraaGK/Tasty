@@ -20,13 +20,13 @@ class SearchPresenter: BasePresenter<SearchViewController, SearchModel> {
         super.init(view: view, model: model)
     }
     
-    func searchFor(word: String, completion: @escaping(Result<[Recipe], Error>) -> Void) {
+    func searchFor(word: String){
         model.searchFor(word: word, from: from) { result in
             switch result {
             case .success(let data):
-                completion(.success( self.getRecipesArray(from: data)))
+                self.view.setTableViewResult(with: self.getRecipesArray(from: data))
             case .failure(let error):
-                completion(.failure(error))
+                self.view.showSearchFailed()
             }
             
         }

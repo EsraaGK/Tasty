@@ -16,35 +16,33 @@ class SearchViewController: UIViewController {
     lazy var adapter = SearchAdapter(searchTableView: searchTableView,
                                      reloadTableView: reloadSearchTable,
                                      moveToDetails: moveToDetails)
-    
+     var spinnerView: UIView?
     override func viewDidLoad() {
         super.viewDidLoad()
         instatiateSearchTableView()
         instatiateSearchBar()
-        presenter?.searchFor(word: "chicken", completion: { result in
-            self.searchTableStatus = .loading
-            let spinnerView = self.showSpinner(onView: self.view)
-            switch result {
-            case .success(let recipesArray):
-                self.adapter.setRecipes(array: recipesArray)
-                self.removeSpinner(spinnerView: spinnerView)
-                self.searchTableStatus = .searchResults
-            case .failure(let error):
-                self.searchTableStatus = .error
-                
-                print(error.localizedDescription)
-            }
-        })
+        self.searchTableStatus = .loading
+         spinnerView = self.showSpinner(onView: self.view)
+        presenter?.searchFor(word: "f")
+        //      { result in
+        //
+        //            switch result {
+        //            case .success(let recipesArray):
+        //
+        //            case .failure(let error):
+        //
+        //            }
+        //        })
     }
     
     func instatiateSearchTableView() {
         adapter.setDelegates()
         searchTableView.register(SearchDataTableViewCell.nib,
                                  forCellReuseIdentifier: SearchDataTableViewCell.identifire)
-      //  let background = UIImageView(frame: searchTableView.frame)
-       // background.image = Asset.search.image
+        //  let background = UIImageView(frame: searchTableView.frame)
+        // background.image = Asset.search.image
         searchTableView.backgroundView = UIImageView(image: Asset.search.image)
-        searchTableView.backgroundView = UIView(frame: CGRect.zero)
+        searchTableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
     func instatiateSearchBar() {
@@ -60,6 +58,17 @@ class SearchViewController: UIViewController {
         } else {
             // Fallback on earlier versions
         }
+    }
+    
+    func setTableViewResult(with array: [Recipe]) {
+        self.adapter.setRecipes(array: array)
+        self.removeSpinner(spinnerView: spinnerView ?? UIView())
+        searchTableView.backgroundView = UIView(frame: .zero)
+        self.searchTableStatus = .searchResults
+    }
+    func showSearchFailed() {
+        self.searchTableStatus = .error
+        self.searchTableView.backgroundView = UIImageView(image: Asset.error.image)
     }
     
     func moveToDetails(recipe: Recipe) {
