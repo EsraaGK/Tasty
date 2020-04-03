@@ -10,4 +10,17 @@ import Foundation
 
 class SearchModel: BaseModel, SearchModelProtocol {
     
+    func searchFor(word: String, from: Int, completion: @escaping(Result<Data, Error>) -> Void) {
+        
+        AppManger.shared.apiService.request(.search(searchWord: word, fromResult: 1, toResult: 2)) { (result) in
+            switch result {
+            case .success(let response):
+                completion(.success(response.data))
+            case .failure(let moyaError):
+                completion(.failure(moyaError))
+                print(moyaError)
+            }
+            
+        }
+    }
 }

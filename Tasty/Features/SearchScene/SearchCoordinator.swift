@@ -15,13 +15,21 @@ class SearchCoordinator: Coordinator {
     
     init(presenter: UINavigationController) {
         self.presenter = presenter
-        searchViewController = Container.getSearchScene()
-        searchViewController?.delegate = self
+        searchViewController = getSearchViewController()
+//        searchViewController?.delegate = self
     }
     
     func start() {
         presenter.pushViewController(searchViewController ?? SearchViewController(), animated: true)
     }
+    func getSearchViewController() -> SearchViewController {
+           let view = SearchViewController()
+           let model = SearchModel()
+           let presenter = SearchPresenter(view: view, model: model)
+           presenter.moveToDetailsDelegate = self
+           view.presenter = presenter
+           return view
+       }
 }
 
 extension SearchCoordinator: SearchViewControllerDelegate {

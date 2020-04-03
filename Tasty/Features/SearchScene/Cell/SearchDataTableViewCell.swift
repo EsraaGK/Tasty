@@ -19,6 +19,13 @@ class SearchDataTableViewCell: UITableViewCell {
         // Initialization code
     }
     
+    func configureSearchDataCell(with recipe: Recipe) {
+        recipeTitleLable.text = recipe.label
+        sourceLable.text = recipe.source
+        healthLable.text = recipe.healthLabels?[0] ?? ""
+        
+    }
+    
 }
 
 extension SearchDataTableViewCell {

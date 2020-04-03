@@ -39,6 +39,5 @@ class AppManger {
         AppManger.shared.applicationCoordinator = ApplicationCoordinator(
             window: AppManger.shared.window ?? UIWindow())
         AppManger.shared.applicationCoordinator?.start()
-        print(1)
     }
 }

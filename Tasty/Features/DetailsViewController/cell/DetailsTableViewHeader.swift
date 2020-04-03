@@ -10,8 +10,6 @@ import UIKit
 
 class DetailsTableViewHeader: UITableViewHeaderFooterView {
     @IBOutlet weak private var image: UIImage!
-
-
 }
 
 extension DetailsTableViewHeader {

@@ -9,13 +9,13 @@
 import Foundation
 
 protocol SearchPresenterProtocol {
+    func searchFor(word: String, completion: (Result<Any, Error>))
     
 }
 
 protocol SearchViewProtocol: BaseViewProtocol {
-    
 }
 
 protocol SearchModelProtocol: BaseModelProtocol {
-    
+   func searchFor(word: String, from: Int, completion: @escaping(Result<Data, Error>) -> Void)
 }

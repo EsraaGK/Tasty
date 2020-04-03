@@ -10,9 +10,9 @@ import UIKit
 
 class Container {
    
-    class func getSearchScene() -> SearchViewController {
-        return  SearchViewControllerModule.getSearchViewController()
-    }
+//    class func getSearchScene() -> SearchViewController {
+//        return  SearchViewControllerModule.getSearchViewController()
+//    }
     
     class func getDetailsScene() -> DetailsViewController {
         return DetailsViewControllerModule.getDetailsViewController()

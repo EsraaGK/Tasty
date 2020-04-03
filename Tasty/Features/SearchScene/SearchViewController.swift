@@ -9,32 +9,31 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-    var presenter: SearchPresenter?
-    weak var delegate: SearchViewControllerDelegate?
-    var searchTableStatus = SearchTableStates.firstView
-    
     @IBOutlet private weak var searchTableView: UITableView!
+    var presenter: SearchPresenter?
+   // weak var delegate: SearchViewControllerDelegate?
+    var searchTableStatus = SearchTableStates.firstView
+    lazy var adapter = SearchAdapter(searchTableView: searchTableView,
+                                     reloadTableView: reloadSearchTable,
+                                     moveToDetails: moveToDetails)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+      //   presenter?.moveToDetailsDelegate = delegate
         instatiateSearchTableView()
         instatiateSearchBar()
-        
-        AppManger.shared.apiService.request(.search(searchWord: "chicken", fromResult: 10, toResult: 11)) { (result) in
+        presenter?.searchFor(word: "chicken", completion: { result in
             switch result {
-            case .success(let response):
-                
-                print(try? JSONSerialization.jsonObject(with: response.data, options: []))
-            case .failure(let moyaError):
-                print(moyaError)
+            case .success(let recipesArray):
+                self.adapter.setRecipes(array: recipesArray)
+            case .failure(let error):
+                print(error.localizedDescription)
             }
-            
-        }
+        })
     }
     
     func instatiateSearchTableView() {
-        searchTableView.delegate = self
-        searchTableView.dataSource = self
+        adapter.setDelegates()
         searchTableView.register(SearchDataTableViewCell.nib,
                                  forCellReuseIdentifier: SearchDataTableViewCell.identifire)
         searchTableView.backgroundView = UIImageView(image: UIImage(named: "hhhhh"))
@@ -55,25 +54,19 @@ class SearchViewController: UIViewController {
             // Fallback on earlier versions
         }
     }
-}
-
-extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return 5
+    
+    func moveToDetails(recipe: Recipe) {
+        presenter?.moveToDetailsWith(recipe: recipe)
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchDataTableViewCell.identifire)
-            as? SearchDataTableViewCell else { return UITableViewCell() }
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let delegate = self.delegate else { return }
-        delegate.moveToDetails()
+    func reloadSearchTable() {
+        searchTableView.reloadData()
     }
 }
+//
+//extension SearchViewController:  {
+//
+//}
 
 extension SearchViewController: SearchViewProtocol {
     
