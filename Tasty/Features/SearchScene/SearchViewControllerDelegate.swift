@@ -9,5 +9,5 @@
 import Foundation
 
 protocol SearchViewControllerDelegate: class {
-    func moveToDetails()
+    func moveToDetails(recipe: Recipe)
 }

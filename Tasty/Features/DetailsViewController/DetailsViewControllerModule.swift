@@ -9,12 +9,4 @@
 import UIKit
 
 class DetailsViewControllerModule {
- 
-    class func getDetailsViewController() -> DetailsViewController {
-        let view = DetailsViewController()
-        let model = DetailsModel()
-        let presenter = DetailsPresenter(view: view, model: model)
-        view.presenter = presenter
-        return view
-    }
-}
+ }

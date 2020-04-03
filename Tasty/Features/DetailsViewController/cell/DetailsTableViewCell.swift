@@ -10,11 +10,15 @@ import UIKit
 
 class DetailsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak private var lable: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
     }
-
+    func configureCell(with text: String) {
+        lable.text = text
+    }
 }
 
 extension DetailsTableViewCell {

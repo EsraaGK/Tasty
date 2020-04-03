@@ -33,8 +33,8 @@ class SearchCoordinator: Coordinator {
 }
 
 extension SearchCoordinator: SearchViewControllerDelegate {
-    func moveToDetails() {
-        detailsCoordinator = DetailsCoordinator(presenter: presenter)
+    func moveToDetails(recipe: Recipe) {
+        detailsCoordinator = DetailsCoordinator(presenter: presenter, recipe: recipe)
         detailsCoordinator?.start()
     }
 }

@@ -36,7 +36,7 @@ class SearchPresenter: BasePresenter<SearchViewController, SearchModel> {
     
     func moveToDetailsWith(recipe: Recipe) {
         guard let moveToDetailsDelegate = self.moveToDetailsDelegate else { return }
-        moveToDetailsDelegate.moveToDetails()
+        moveToDetailsDelegate.moveToDetails(recipe: recipe)
     }
     
     func getRecipesArray(from data: Data) -> [Recipe] {

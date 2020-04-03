@@ -23,7 +23,7 @@ class SearchDataTableViewCell: UITableViewCell {
         recipeImage.setImageWith(urlString: recipe.image)
         recipeTitleLable.text = recipe.label
         sourceLable.text = recipe.source
-        healthLable.text = recipe.healthLabels?[0] ?? ""
+        healthLable.text = recipe.healthLabels[0]
         
     }
     

@@ -23,8 +23,8 @@ struct Recipe: Decodable {
     var image: String
     var source: String
     var url: String
-    var healthLabels: [String]?
-    var ingredientLines: [String]?
+    var healthLabels: [String]
+    var ingredientLines: [String]
 
 //    init(json: [String: Any]) {
 //        label = json["label"] as? String ?? "label"

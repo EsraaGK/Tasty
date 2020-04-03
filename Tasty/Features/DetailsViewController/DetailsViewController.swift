@@ -10,11 +10,13 @@ import UIKit
 
 class DetailsViewController: UIViewController, DetailsViewProtocol {
     var presenter: DetailsPresenter?
+    var viewObj: Recipe?
     
     @IBOutlet private weak var ingrediantTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewObj = presenter?.getDetailsViewData()
         instatiateIngrediantTableView()
     }
     
@@ -26,9 +28,10 @@ class DetailsViewController: UIViewController, DetailsViewProtocol {
 //        ingrediantTable.register(DetailsTableViewHeader.nib,
 //                                 forHeaderFooterViewReuseIdentifier: DetailsTableViewHeader.identifire)
         ingrediantTable.tableFooterView = UIView(frame: CGRect.zero)
-        let myView = Bundle.loadView(fromNib: "DetailsHeaderView", withType: DetailsHeaderView.self)
+        let myView = Bundle.loadView(fromNib: DetailsHeaderView.identifire, withType: DetailsHeaderView.self)
 
         ingrediantTable.tableHeaderView = myView
+        myView.configureHeaderView(imgUrlString: viewObj?.image ?? "", title: viewObj?.label ?? "")
         
     }
     
@@ -36,13 +39,14 @@ class DetailsViewController: UIViewController, DetailsViewProtocol {
 
 extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        return viewObj?.ingredientLines.count ?? 0
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailsTableViewCell.identifire)
             as? DetailsTableViewCell else { return UITableViewCell() }
+        cell.configureCell( with: viewObj?.ingredientLines[indexPath.row] ?? "")
         return cell
     }
 //    

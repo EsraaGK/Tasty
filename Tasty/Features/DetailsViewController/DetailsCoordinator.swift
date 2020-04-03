@@ -12,13 +12,21 @@ class DetailsCoordinator: Coordinator {
     private var presenter: UINavigationController
     private var detailsViewController: DetailsViewController?
     
-    init(presenter: UINavigationController) {
+    init(presenter: UINavigationController, recipe: Recipe) {
         self.presenter = presenter
-        detailsViewController = Container.getDetailsScene()
+        detailsViewController = getDetailsViewController(recipe: recipe)
     }
     
     func start() {
         presenter.pushViewController(detailsViewController ?? DetailsViewController(), animated: true)
+    }
+    
+    func getDetailsViewController(recipe: Recipe) -> DetailsViewController {
+        let view = DetailsViewController()
+        let model = DetailsModel()
+        let presenter = DetailsPresenter(view: view, model: model, recipe: recipe)
+        view.presenter = presenter
+        return view
     }
 }
 

@@ -27,8 +27,11 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvq-ai-Pmq">
-                            <rect key="frame" x="356" y="287" width="46" height="30"/>
-                            <state key="normal" title="Button"/>
+                            <rect key="frame" x="333" y="287" width="69" height="30"/>
+                            <state key="normal" title="Visite Site"/>
+                            <connections>
+                                <action selector="visitSource:" destination="iN0-l3-epB" eventType="touchUpInside" id="wqF-KP-uFy"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -55,6 +58,10 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="recipeImage" destination="VLO-Bb-ysS" id="M6u-qg-hKs"/>
+                <outlet property="titleLable" destination="UCR-hs-hZ1" id="0pc-Xe-KLl"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="-110.15625"/>
         </view>
     </objects>
