@@ -11,7 +11,7 @@ import UIKit
 class SearchViewController: UIViewController {
     @IBOutlet private weak var searchTableView: UITableView!
     var presenter: SearchPresenter?
-   // weak var delegate: SearchViewControllerDelegate?
+    // weak var delegate: SearchViewControllerDelegate?
     var searchTableStatus = SearchTableStates.firstView
     lazy var adapter = SearchAdapter(searchTableView: searchTableView,
                                      reloadTableView: reloadSearchTable,
@@ -19,14 +19,20 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      //   presenter?.moveToDetailsDelegate = delegate
+        //   presenter?.moveToDetailsDelegate = delegate
         instatiateSearchTableView()
         instatiateSearchBar()
         presenter?.searchFor(word: "chicken", completion: { result in
+            self.searchTableStatus = .loading
+           let spinnerView = self.showSpinner(onView: self.view)
             switch result {
             case .success(let recipesArray):
                 self.adapter.setRecipes(array: recipesArray)
+                 self.removeSpinner(spinnerView: spinnerView)
+                self.searchTableStatus = .searchResults
             case .failure(let error):
+                self.searchTableStatus = .error
+               
                 print(error.localizedDescription)
             }
         })
@@ -36,7 +42,7 @@ class SearchViewController: UIViewController {
         adapter.setDelegates()
         searchTableView.register(SearchDataTableViewCell.nib,
                                  forCellReuseIdentifier: SearchDataTableViewCell.identifire)
-        searchTableView.backgroundView = UIImageView(image: UIImage(named: "hhhhh"))
+     //   searchTableView.backgroundView = UIImageView(image: UIImage(named: "hhhhh"))
         searchTableView.backgroundView = UIView(frame: CGRect.zero)
     }
     

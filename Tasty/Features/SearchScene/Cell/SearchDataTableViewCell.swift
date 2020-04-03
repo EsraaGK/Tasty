@@ -20,6 +20,7 @@ class SearchDataTableViewCell: UITableViewCell {
     }
     
     func configureSearchDataCell(with recipe: Recipe) {
+        recipeImage.setImageWith(urlString: recipe.image)
         recipeTitleLable.text = recipe.label
         sourceLable.text = recipe.source
         healthLable.text = recipe.healthLabels?[0] ?? ""

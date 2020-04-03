@@ -43,7 +43,10 @@
 		CE5090A32434FC8B00027F99 /* SearchProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090A22434FC8B00027F99 /* SearchProtocols.swift */; };
 		CE5090A72435083C00027F99 /* SearchDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090A52435083C00027F99 /* SearchDataTableViewCell.swift */; };
 		CE5090A82435083C00027F99 /* SearchDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5090A62435083C00027F99 /* SearchDataTableViewCell.xib */; };
+		CEC81E92243798210035FE81 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC81E91243798210035FE81 /* UIImageViewExtensions.swift */; };
 		CED191F724360CFD00EECD2D /* entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED191F624360CFD00EECD2D /* entity.swift */; };
+		CED48A3B2437A550008AE600 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED48A3A2437A550008AE600 /* Assets.swift */; };
+		CED48A3D2437A7AF008AE600 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED48A3C2437A7AF008AE600 /* UIViewControllerExtensions.swift */; };
 		CEE793DA24364DA600978856 /* DetailsTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE793D62436486500978856 /* DetailsTableViewHeader.swift */; };
 		CEE793DB243652DF00978856 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090832434E5BA00027F99 /* DetailsViewController.swift */; };
 		CEE793DC243652EB00978856 /* DetailsTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE793D8243648A500978856 /* DetailsTableViewHeader.xib */; };
@@ -94,7 +97,10 @@
 		CE5090A22434FC8B00027F99 /* SearchProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProtocols.swift; sourceTree = "<group>"; };
 		CE5090A52435083C00027F99 /* SearchDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataTableViewCell.swift; sourceTree = "<group>"; };
 		CE5090A62435083C00027F99 /* SearchDataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchDataTableViewCell.xib; sourceTree = "<group>"; };
+		CEC81E91243798210035FE81 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
 		CED191F624360CFD00EECD2D /* entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = entity.swift; sourceTree = "<group>"; };
+		CED48A3A2437A550008AE600 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		CED48A3C2437A7AF008AE600 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		CEE793D62436486500978856 /* DetailsTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableViewHeader.swift; sourceTree = "<group>"; };
 		CEE793D8243648A500978856 /* DetailsTableViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsTableViewHeader.xib; sourceTree = "<group>"; };
 		CEE793DD24365ED000978856 /* DetailsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsHeaderView.xib; sourceTree = "<group>"; };
@@ -189,7 +195,7 @@
 		CE5090662434AC9100027F99 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				CE50905A2434998F00027F99 /* Assets.xcassets */,
+				CEC81E932437A22B0035FE81 /* Assets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -295,6 +301,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		CEC81E932437A22B0035FE81 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				CED48A3A2437A550008AE600 /* Assets.swift */,
+				CE50905A2434998F00027F99 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		CED191F524360CDC00EECD2D /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,6 +322,8 @@
 			isa = PBXGroup;
 			children = (
 				CEE793E2243663DB00978856 /* BundleExtensions.swift */,
+				CEC81E91243798210035FE81 /* UIImageViewExtensions.swift */,
+				CED48A3C2437A7AF008AE600 /* UIViewControllerExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -440,7 +457,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "swiftgen … \nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\nswiftgen\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -451,8 +468,10 @@
 			files = (
 				CEE793DB243652DF00978856 /* DetailsViewController.swift in Sources */,
 				CEE793DA24364DA600978856 /* DetailsTableViewHeader.swift in Sources */,
+				CEC81E92243798210035FE81 /* UIImageViewExtensions.swift in Sources */,
 				CE5090932434F9EB00027F99 /* BaseViewController.swift in Sources */,
 				CE0AA82F2435270700748C38 /* DetailsViewControllerModule.swift in Sources */,
+				CED48A3D2437A7AF008AE600 /* UIViewControllerExtensions.swift in Sources */,
 				CE5090782434C10000027F99 /* ApplicationNavigationController.swift in Sources */,
 				CE5090A12434FC0B00027F99 /* SearchPresenter.swift in Sources */,
 				CE1310652437627900A53BC9 /* SearchAdapter.swift in Sources */,
@@ -474,6 +493,7 @@
 				CE50907D2434C7A100027F99 /* SearchCoordinator.swift in Sources */,
 				CE5090522434998D00027F99 /* AppDelegate.swift in Sources */,
 				CE0AA82A2435270700748C38 /* DetailsProtocols.swift in Sources */,
+				CED48A3B2437A550008AE600 /* Assets.swift in Sources */,
 				CEE793E3243663DB00978856 /* BundleExtensions.swift in Sources */,
 				CE0AA82E2435270700748C38 /* DetailsViewControllerDelegate.swift in Sources */,
 				CE50909A2434F9EB00027F99 /* BasePresenterProtocol.swift in Sources */,

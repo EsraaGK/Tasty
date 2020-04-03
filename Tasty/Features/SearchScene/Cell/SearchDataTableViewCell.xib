@@ -20,7 +20,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xbe-8g-OPZ">
                         <rect key="frame" x="8" y="8" width="436" height="148"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EFPd2fWUwAAVIRE" translatesAutoresizingMaskIntoConstraints="NO" id="nNN-v5-oZB">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="nNN-v5-oZB">
                                 <rect key="frame" x="12" y="8" width="131" height="132"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N2Q-cB-K23" userLabel="Lables View">
@@ -94,6 +94,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="EFPd2fWUwAAVIRE" width="1359" height="1659"/>
+        <image name="placeholder" width="450" height="450"/>
     </resources>
 </document>
