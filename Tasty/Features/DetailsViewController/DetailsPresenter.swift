@@ -24,11 +24,11 @@ class DetailsPresenter: BasePresenter<DetailsViewController, DetailsModel> {
     }
     
     func getDetailsViewData() -> Recipe {
-        return recipe ??  Recipe(label: "",
-                                 image: "",
-                                 source: "",
-                                 url: "",
-                                 healthLabels: [String](),
-                                 ingredientLines: [String]())
+        return recipe ?? Recipe(label: "",
+                                image: "",
+                                source: "",
+                                url: "",
+                                healthLabels: [String](),
+                                ingredientLines: [String]())
     }
 }

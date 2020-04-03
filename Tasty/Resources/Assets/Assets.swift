@@ -20,7 +20,9 @@
 internal enum Asset {
   internal static let error = ImageAsset(name: "error")
   internal static let placeholder = ImageAsset(name: "placeholder")
+  internal static let safari = ImageAsset(name: "safari")
   internal static let search = ImageAsset(name: "search")
+  internal static let website = ImageAsset(name: "website")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 

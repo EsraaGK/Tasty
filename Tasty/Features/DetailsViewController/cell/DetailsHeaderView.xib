@@ -21,14 +21,18 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="329"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EmmaEmmaEmma\" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCR-hs-hZ1">
-                            <rect key="frame" x="12" y="296.5" width="148" height="20.5"/>
+                            <rect key="frame" x="12" y="267" width="328" height="50"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvq-ai-Pmq">
-                            <rect key="frame" x="333" y="287" width="69" height="30"/>
-                            <state key="normal" title="Visite Site"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvq-ai-Pmq">
+                            <rect key="frame" x="352" y="267" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="61a-z9-mbP"/>
+                                <constraint firstAttribute="width" constant="50" id="CPF-8S-Ib3"/>
+                            </constraints>
+                            <state key="normal" title="Visite Site" image="safari"/>
                             <connections>
                                 <action selector="visitSource:" destination="iN0-l3-epB" eventType="touchUpInside" id="wqF-KP-uFy"/>
                             </connections>
@@ -42,6 +46,8 @@
                         <constraint firstAttribute="bottom" secondItem="VLO-Bb-ysS" secondAttribute="bottom" id="CLT-ql-HOc"/>
                         <constraint firstItem="UCR-hs-hZ1" firstAttribute="leading" secondItem="VLO-Bb-ysS" secondAttribute="leading" constant="12" id="GL3-qc-KoK"/>
                         <constraint firstItem="VLO-Bb-ysS" firstAttribute="bottom" secondItem="UCR-hs-hZ1" secondAttribute="bottom" constant="12" id="VjO-XC-VgV"/>
+                        <constraint firstItem="cvq-ai-Pmq" firstAttribute="leading" secondItem="UCR-hs-hZ1" secondAttribute="trailing" constant="12" id="auL-d8-f2v"/>
+                        <constraint firstItem="cvq-ai-Pmq" firstAttribute="centerY" secondItem="UCR-hs-hZ1" secondAttribute="centerY" id="czF-0r-A5J"/>
                         <constraint firstItem="VLO-Bb-ysS" firstAttribute="top" secondItem="95r-hi-zat" secondAttribute="top" id="ovl-I7-z4g"/>
                         <constraint firstItem="VLO-Bb-ysS" firstAttribute="trailing" secondItem="cvq-ai-Pmq" secondAttribute="trailing" constant="12" id="zL1-mI-2ik"/>
                     </constraints>
@@ -67,5 +73,6 @@
     </objects>
     <resources>
         <image name="placeholder" width="450" height="450"/>
+        <image name="safari" width="1024" height="1024"/>
     </resources>
 </document>
