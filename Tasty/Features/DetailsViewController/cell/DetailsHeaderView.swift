@@ -7,19 +7,33 @@
 //
 
 import UIKit
+import SafariServices
 
 class DetailsHeaderView: UIView {
     @IBOutlet private weak var recipeImage: UIImageView!
     @IBOutlet private weak var titleLable: UILabel!
-    @IBAction func visitSource(_ sender: Any) {
-    }
+    var parentViewController: UIViewController?
+    var sourceUrl: String?
     
-    func configureHeaderView(imgUrlString: String, title: String ) {
-        titleLable.text = title
-        recipeImage.setImageWith(urlString: imgUrlString)
+    @IBAction func visitSource(_ sender: Any) {
+        if let url = URL(string: sourceUrl ?? "") {
+            if #available(iOS 11.0, *) {
+                let config = SFSafariViewController.Configuration()
+                config.entersReaderIfAvailable = true
+                
+                let vc = SFSafariViewController(url: url, configuration: config)
+                parentViewController?.present(vc, animated: true)
+            } else {
+                // Fallback on earlier versions
+            }
+        }
     }
-}
-extension DetailsHeaderView {
-    static var identifire: String { return String(describing: self) }
-    static var nib: UINib { return UINib(nibName: DetailsHeaderView.identifire, bundle: nil) }
+        func configureHeaderView(imgUrlString: String, title: String ) {
+            titleLable.text = title
+            recipeImage.setImageWith(urlString: imgUrlString)
+        }
+    }
+    extension DetailsHeaderView {
+        static var identifire: String { return String(describing: self) }
+        static var nib: UINib { return UINib(nibName: DetailsHeaderView.identifire, bundle: nil) }
 }

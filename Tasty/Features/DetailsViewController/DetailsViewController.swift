@@ -32,6 +32,8 @@ class DetailsViewController: UIViewController, DetailsViewProtocol {
 
         ingrediantTable.tableHeaderView = myView
         myView.configureHeaderView(imgUrlString: viewObj?.image ?? "", title: viewObj?.label ?? "")
+        myView.parentViewController = self
+        myView.sourceUrl = viewObj?.url
         
     }
     
