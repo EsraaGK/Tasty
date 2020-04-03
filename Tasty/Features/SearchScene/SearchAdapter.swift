@@ -13,7 +13,13 @@ class SearchAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     let searchTableView: UITableView
     let reloadTableView: () -> Void
     let moveToDetails: (Recipe) -> Void
+    var searchTableStates = SearchTableStates.searchHistoryWords
     var recipes: [Recipe] {
+        didSet {
+            reloadTableView()
+        }
+    }
+    var searchWords: [String] {
         didSet {
             reloadTableView()
         }
@@ -24,28 +30,53 @@ class SearchAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         self.reloadTableView = reloadTableView
         self.moveToDetails = moveToDetails
         recipes = [Recipe]()
+        searchWords = [String]()
     }
     
     func setRecipes(array: [Recipe]) {
         recipes.append(contentsOf: array)
     }
-  
+    
     func setDelegates() {
         searchTableView.delegate = self
         searchTableView.dataSource = self
     }
+    func changeTableStatusTo(status: SearchTableStates) {
+        searchTableStates = status
+        reloadTableView()
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipes.count
+        switch searchTableStates {
+        case .searchHistoryWords:
+            return searchWords.count
+        default:
+            return recipes.count
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchDataTableViewCell.identifire)
-            as? SearchDataTableViewCell else { return UITableViewCell() }
-        cell.configureSearchDataCell(with: recipes[indexPath.row])
-        return cell
+        switch searchTableStates {
+        case .searchHistoryWords:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailsTableViewCell.identifire)
+                as? DetailsTableViewCell else { return UITableViewCell() }
+            
+            return cell
+        default:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchDataTableViewCell.identifire)
+                as? SearchDataTableViewCell else { return UITableViewCell() }
+            cell.configureSearchDataCell(with: recipes[indexPath.row])
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        moveToDetails(recipes[indexPath.row])
+        switch searchTableStates {
+        case .searchHistoryWords:
+            print("search")
+        default:
+            moveToDetails(recipes[indexPath.row])
+        }
+        
     }
 }
