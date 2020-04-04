@@ -15,7 +15,8 @@ class SearchViewController: UIViewController {
     var searchTableStatus = SearchTableStates.firstView
     lazy var adapter = SearchAdapter(searchTableView: searchTableView,
                                      reloadTableView: reloadSearchTable,
-                                     moveToDetails: moveToDetails)
+                                     moveToDetails: moveToDetails,
+                                     loadMore: loadMore)
     var spinnerView: UIView?
     override func viewDidLoad() {
         self.title = "Tasty"
@@ -34,13 +35,12 @@ class SearchViewController: UIViewController {
         adapter.setDelegates()
         searchTableView.register(SearchDataTableViewCell.nib,
                                  forCellReuseIdentifier: SearchDataTableViewCell.identifire)
-        searchTableView.backgroundView = UIImageView(image: Asset.search.image)
         searchTableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
     func instatiateSearchBar() {
         searchController.delegate = self
-        searchController.searchResultsUpdater = self
+      //  searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
         if #available(iOS 9.1, *) {
             searchController.obscuresBackgroundDuringPresentation = false
@@ -62,22 +62,26 @@ class SearchViewController: UIViewController {
     func reloadSearchTable() {
         searchTableView.reloadData()
     }
+    func loadMore() {
+         presenter?.searchFor(word: "", searchTableStates: .loadMore)
+    }
+    
 }
 
-extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating {
+extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate/*, UISearchResultsUpdating */{
 // UISearchResultsUpdating
-    func updateSearchResults(for searchController: UISearchController) {
-        if let searchText = searchController.searchBar.text,
-            !searchText.isEmpty { // display search cell
-            self.searchTableStatus = .searchHistoryWords
-            adapter.changeTableStatusTo(status: searchTableStatus)
-            
-        } else {
-            self.searchTableStatus = .searchHistoryWords
-            adapter.changeTableStatusTo(status: searchTableStatus)
-        }
-        
-    }
+//    func updateSearchResults(for searchController: UISearchController) {
+//        if let searchText = searchController.searchBar.text,
+//            !searchText.isEmpty { // display search cell
+//            self.searchTableStatus = .searchHistoryWords
+//            adapter.changeTableStatusTo(status: searchTableStatus)
+//
+//        } else {
+//            self.searchTableStatus = .searchHistoryWords
+//            adapter.changeTableStatusTo(status: searchTableStatus)
+//        }
+//
+//    }
     // UISearchControllerDelegate
     //    func willDismissSearchController(_ searchController: UISearchController) {
     //
@@ -94,21 +98,20 @@ extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate,
     //       optional func presentSearchController(_ searchController: UISearchController)
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        self.searchTableStatus = .searchResults
+        self.searchTableStatus = .firstView
         adapter.changeTableStatusTo(status: searchTableStatus)
-        searchTableView.backgroundView = UIImageView(image: Asset.search.image)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.searchTableStatus = .loading
+        self.searchTableStatus = .firstView
         adapter.changeTableStatusTo(status: searchTableStatus)
         spinnerView = self.showSpinner(onView: self.view)
         let searchWord = searchController.searchBar.text ?? ""
-        presenter?.searchFor(word: searchWord)
+        presenter?.searchFor(word: searchWord, searchTableStates: .firstView)
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        self.searchTableStatus = .searchHistoryWords
+        searchTableStatus = .searchHistoryWords
         adapter.changeTableStatusTo(status: searchTableStatus)
     }
 }
@@ -117,14 +120,12 @@ extension SearchViewController: SearchViewProtocol {
     
     func setTableViewResult(with array: [Recipe]) {
         searchTableStatus = .searchResults
-        adapter.setRecipes(array: array)
         adapter.changeTableStatusTo(status: searchTableStatus)
+        adapter.setRecipes(array: array)
         self.removeSpinner(spinnerView: spinnerView ?? UIView())
-        searchTableView.backgroundView = UIView(frame: .zero)
-        
     }
     func showSearchFailed() {
-        self.searchTableStatus = .error
-        self.searchTableView.backgroundView = UIImageView(image: Asset.error.image)
+         searchTableStatus = .error
+        adapter.changeTableStatusTo(status: searchTableStatus)
     }
 }

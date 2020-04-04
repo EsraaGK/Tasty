@@ -9,10 +9,12 @@
 import Foundation
 
 class SearchModel: BaseModel, SearchModelProtocol {
-    
+        
     func searchFor(word: String, from: Int, completion: @escaping(Result<Data, Error>) -> Void) {
         
-        AppManger.shared.apiService.request(.search(searchWord: word, fromResult: 0, toResult: 2)) { (result) in
+        AppManger.shared.apiService.request(.search(searchWord: word,
+                                                    fromResult: from,
+                                                    toResult: 9 + from)) {(result) in
             switch result {
             case .success(let response):
                 completion(.success(response.data))

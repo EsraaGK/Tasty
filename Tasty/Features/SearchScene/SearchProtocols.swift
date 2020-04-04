@@ -9,7 +9,7 @@
 import Foundation
 
 protocol SearchPresenterProtocol {
-    func searchFor(word: String, completion: (Result<Any, Error>))
+    func searchFor(word: String, completion: (Result<Any, Error>)-> Void)
     
 }
 

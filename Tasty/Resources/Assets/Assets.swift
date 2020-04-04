@@ -18,6 +18,7 @@
 
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 internal enum Asset {
+  internal static let emptyResult = ImageAsset(name: "empty_result")
   internal static let error = ImageAsset(name: "error")
   internal static let placeholder = ImageAsset(name: "placeholder")
   internal static let safari = ImageAsset(name: "safari")

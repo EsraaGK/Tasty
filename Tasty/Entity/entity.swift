@@ -9,11 +9,13 @@
 import Foundation
 
 struct RecipeApiObj: Decodable {
+    let from: Int
     let  hits: [Hit]
-    
-//    init(json: [String: Any]) {
-//        hits = json["hits"] as? [Recipe] ??  [Recipe]()
-//    }
+    let to: Int
+    let more: Bool
+    //    init(json: [String: Any]) {
+    //        hits = json["hits"] as? [Recipe] ??  [Recipe]()
+    //    }
 }
 struct Hit: Decodable {
     let recipe: Recipe
@@ -23,17 +25,17 @@ struct Recipe: Decodable {
     var image: String
     var source: String
     var url: String
-    var healthLabels: [String]
+    var healthLabels: [String]?
     var ingredientLines: [String]
-
-//    init(json: [String: Any]) {
-//        label = json["label"] as? String ?? "label"
-//        image = json["image"] as? String ?? "image"
-//        source = json["source"] as? String ?? "source"
-//        url = json["url"] as? String ?? "url"
-//        healthLabels = json["healthLabels"] as? [String] ??  [String]()
-//        ingredientLines = json["ingredientLines"] as? [String] ??  [String]()
-//    }
+    
+    //    init(json: [String: Any]) {
+    //        label = json["label"] as? String ?? "label"
+    //        image = json["image"] as? String ?? "image"
+    //        source = json["source"] as? String ?? "source"
+    //        url = json["url"] as? String ?? "url"
+    //        healthLabels = json["healthLabels"] as? [String] ??  [String]()
+    //        ingredientLines = json["ingredientLines"] as? [String] ??  [String]()
+    //    }
 }
 
 enum SearchTableStates {
@@ -44,6 +46,7 @@ enum SearchTableStates {
     case searchResults
     case searchHistoryWords
     case error
+    case loadMore
 }
 
 //

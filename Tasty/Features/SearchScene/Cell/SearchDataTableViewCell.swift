@@ -23,10 +23,16 @@ class SearchDataTableViewCell: UITableViewCell {
         recipeImage.setImageWith(urlString: recipe.image)
         recipeTitleLable.text = recipe.label
         sourceLable.text = recipe.source
-        healthLable.text = recipe.healthLabels[0]
+        healthLable.text = concat(array: recipe.healthLabels ?? [String]())
         
     }
-    
+    func concat(array: [String]) -> String {
+          var string = ""
+          for item in array {
+              string += item
+          }
+          return string
+      }
 }
 
 extension SearchDataTableViewCell {
