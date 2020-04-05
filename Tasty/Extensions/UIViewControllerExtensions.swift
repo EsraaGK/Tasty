@@ -10,15 +10,16 @@ import UIKit
 
 extension UIViewController {
     func showSpinner(onView: UIView) -> UIView {
-           let spinnerView = UIView(frame: onView.bounds)
-           spinnerView.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+        let window = UIApplication.shared.keyWindow
+        let spinnerView = UIView(frame: window?.bounds ?? UIScreen.main.bounds)
+           spinnerView.backgroundColor = #colorLiteral(red: 0.8302921661, green: 0.9086847175, blue: 0.9179955051, alpha: 0.496869649)
         let activityIndicator = UIActivityIndicatorView(style: .gray)
            activityIndicator.startAnimating()
            activityIndicator.center = spinnerView.center
            
            DispatchQueue.main.async {
                spinnerView.addSubview(activityIndicator)
-               onView.addSubview(spinnerView)
+            window?.addSubview(spinnerView);
            }
            return spinnerView
        }

@@ -21,26 +21,7 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         self.title = "Tasty"
         super.viewDidLoad()
-        
-     
-//        
-//        searchController.hidesNavigationBarDuringPresentation = true
-//        searchController.dimsBackgroundDuringPresentation = false
-//        if #available(iOS 9.1, *) {
-//            searchController.obscuresBackgroundDuringPresentation = false
-//        } else {
-//            // Fallback on earlier versions
-//        }
-//        searchController.searchResultsUpdater = self as? UISearchResultsUpdating
-//        searchController.searchBar.searchBarStyle = .prominent
-//        if #available(iOS 11.0, *) {
-//            navigationItem.searchController = searchController
-//            navigationItem.hidesSearchBarWhenScrolling = true
-//        } else {
-//            // Fallback on earlier versions
-//        }
-        
-        //
+  
         instatiateSearchTableView()
         instatiateSearchBar()
         if #available(iOS 11.0, *) {
