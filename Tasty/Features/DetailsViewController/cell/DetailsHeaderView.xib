@@ -50,7 +50,6 @@
                         <constraint firstItem="VLO-Bb-ysS" firstAttribute="bottom" secondItem="UCR-hs-hZ1" secondAttribute="bottom" constant="12" id="VjO-XC-VgV"/>
                         <constraint firstItem="cvq-ai-Pmq" firstAttribute="leading" secondItem="UCR-hs-hZ1" secondAttribute="trailing" constant="12" id="auL-d8-f2v"/>
                         <constraint firstItem="cvq-ai-Pmq" firstAttribute="centerY" secondItem="UCR-hs-hZ1" secondAttribute="centerY" id="czF-0r-A5J"/>
-                        <constraint firstAttribute="height" constant="300" id="mcn-5d-Y0o"/>
                         <constraint firstItem="VLO-Bb-ysS" firstAttribute="top" secondItem="95r-hi-zat" secondAttribute="top" id="ovl-I7-z4g"/>
                         <constraint firstItem="VLO-Bb-ysS" firstAttribute="trailing" secondItem="cvq-ai-Pmq" secondAttribute="trailing" constant="12" id="zL1-mI-2ik"/>
                     </constraints>

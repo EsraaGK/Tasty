@@ -22,33 +22,23 @@ class SearchViewController: UIViewController {
         self.title = "Tasty"
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(),
-                                                                    for: UIBarPosition.any,
-                                                                    barMetrics: UIBarMetrics.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-//        self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.950938046, green: 0.820579946, blue: 0.3441214561, alpha: 1)
-//        self.navigationController?.navigationBar.isTranslucent = false
-//        self.navigationController?.navigationBar.clipsToBounds = false
-        self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 0.950938046, green: 0.820579946, blue: 0.3441214561, alpha: 1)
-        self.navigationController?.navigationBar.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.black];
-        
-        searchController.hidesNavigationBarDuringPresentation = false
-        searchController.dimsBackgroundDuringPresentation = false
-        if #available(iOS 9.1, *) {
-            searchController.obscuresBackgroundDuringPresentation = false
-        } else {
-            // Fallback on earlier versions
-        }
-        searchController.searchResultsUpdater = self as? UISearchResultsUpdating
-        searchController.searchBar.searchBarStyle = .prominent
-        if #available(iOS 11.0, *) {
-            navigationItem.searchController = searchController
-            navigationItem.hidesSearchBarWhenScrolling = true
-        } else {
-            // Fallback on earlier versions
-        }
+     
+//        
+//        searchController.hidesNavigationBarDuringPresentation = true
+//        searchController.dimsBackgroundDuringPresentation = false
+//        if #available(iOS 9.1, *) {
+//            searchController.obscuresBackgroundDuringPresentation = false
+//        } else {
+//            // Fallback on earlier versions
+//        }
+//        searchController.searchResultsUpdater = self as? UISearchResultsUpdating
+//        searchController.searchBar.searchBarStyle = .prominent
+//        if #available(iOS 11.0, *) {
+//            navigationItem.searchController = searchController
+//            navigationItem.hidesSearchBarWhenScrolling = true
+//        } else {
+//            // Fallback on earlier versions
+//        }
         
         //
         instatiateSearchTableView()
