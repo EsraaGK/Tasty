@@ -11,6 +11,7 @@ import Moya
 
 class AppManger {
     static let shared = AppManger()
+    let userDefaults = UserDefaults.standard
     var window: UIWindow?
     var applicationCoordinator: ApplicationCoordinator?
     var apiService = MoyaProvider<EdamamServices>()
@@ -39,5 +40,8 @@ class AppManger {
         AppManger.shared.applicationCoordinator = ApplicationCoordinator(
             window: AppManger.shared.window ?? UIWindow())
         AppManger.shared.applicationCoordinator?.start()
+            // Create and Write Array of Strings
+            let array = [String]()
+        AppManger.shared.userDefaults.set(array, forKey: "searchWordsHistory")
     }
 }

@@ -41,7 +41,7 @@ class SearchViewController: UIViewController {
     
     func instatiateSearchBar() {
         searchController.delegate = self
-        //  searchController.searchResultsUpdater = self
+        searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
         if #available(iOS 9.1, *) {
             searchController.obscuresBackgroundDuringPresentation = false
@@ -69,20 +69,20 @@ class SearchViewController: UIViewController {
     
 }
 
-extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate/*, UISearchResultsUpdating */{
-    // UISearchResultsUpdating
-    //    func updateSearchResults(for searchController: UISearchController) {
-    //        if let searchText = searchController.searchBar.text,
-    //            !searchText.isEmpty { // display search cell
-    //            self.searchTableStatus = .searchHistoryWords
-    //            adapter.changeTableStatusTo(status: searchTableStatus)
-    //
-    //        } else {
-    //            self.searchTableStatus = .searchHistoryWords
-    //            adapter.changeTableStatusTo(status: searchTableStatus)
-    //        }
-    //
-    //    }
+extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating {
+   //  UISearchResultsUpdating
+        func updateSearchResults(for searchController: UISearchController) {
+            if let searchText = searchController.searchBar.text,
+                !searchText.isEmpty { // display search cell
+                self.searchTableStatus = .searchHistoryWords
+                adapter.changeTableStatusTo(status: searchTableStatus)
+    
+            } else {
+                self.searchTableStatus = .searchHistoryWords
+                adapter.changeTableStatusTo(status: searchTableStatus)
+            }
+    
+        }
     // UISearchControllerDelegate
     //    func willDismissSearchController(_ searchController: UISearchController) {
     //

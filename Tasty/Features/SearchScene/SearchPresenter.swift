@@ -34,6 +34,7 @@ class SearchPresenter: BasePresenter<SearchViewController, SearchModel> {
             toRecipeApiObj = 0
             from = 0
             more = true
+            saveInUserDefaults()
         }
         model.searchFor(word: searchWord, from: from) { result in
             switch result {
@@ -64,6 +65,16 @@ class SearchPresenter: BasePresenter<SearchViewController, SearchModel> {
             }
         }
         return recipes
+    }
+    
+    func saveInUserDefaults() {
+        var searchWordsHistory = AppManger.shared.userDefaults.object(forKey: "searchWordsHistory") as? [String]
+        searchWordsHistory?.insert(searchWord, at: 0)
+        if searchWordsHistory?.count == 10 {
+        searchWordsHistory?.remove(at: 9)
+        }
+        print(searchWordsHistory)
+        AppManger.shared.userDefaults.set(searchWordsHistory, forKey: "searchWordsHistory")
     }
     
 }

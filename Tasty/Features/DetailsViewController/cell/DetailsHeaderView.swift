@@ -15,6 +15,15 @@ class DetailsHeaderView: UIView {
     var parentViewController: UIViewController?
     var sourceUrl: String?
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.loadViewFromNib()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
     @IBAction func visitSource(_ sender: Any) {
         if let url = URL(string: sourceUrl ?? "") {
             if #available(iOS 11.0, *) {

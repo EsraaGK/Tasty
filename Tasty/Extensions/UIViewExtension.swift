@@ -22,7 +22,13 @@ extension UIView {
        // self.backgroundColor = UIColor(named: "Red")
     }
     
-    
+      func loadViewFromNib() {
+        let nib = UINib(nibName: String(describing: type(of: self)), bundle: nil)
+        guard let view = nib.instantiate(withOwner: self, options: nil).first as? UIView else { return }
+        addSubview(view)
+        view.frame = self.bounds
+        view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+      }
     
 }
 

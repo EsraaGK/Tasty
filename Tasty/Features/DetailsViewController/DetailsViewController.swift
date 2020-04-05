@@ -28,7 +28,9 @@ class DetailsViewController: UIViewController, DetailsViewProtocol {
 //        ingrediantTable.register(DetailsTableViewHeader.nib,
 //                                 forHeaderFooterViewReuseIdentifier: DetailsTableViewHeader.identifire)
         ingrediantTable.tableFooterView = UIView(frame: CGRect.zero)
-        let myView = Bundle.loadView(fromNib: DetailsHeaderView.identifire, withType: DetailsHeaderView.self)
+        var frame = UIScreen.main.bounds
+        frame.size.height = UIScreen.main.bounds.size.height * CGFloat(0.3)
+        let myView = DetailsHeaderView(frame: frame)
         ingrediantTable.tableHeaderView = myView
         myView.configureHeaderView(imgUrlString: viewObj?.image ?? "", title: viewObj?.label ?? "")
         myView.parentViewController = self
