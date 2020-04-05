@@ -25,7 +25,7 @@ class SearchPresenter: BasePresenter<SearchViewController, SearchModel> {
     func searchFor(word: String, searchTableStates: SearchTableStates ) {
         var searchWord = ""
         var from = 0
-        if searchTableStates != .firstView { //loadMORE
+        if searchTableStates != .firstView, more { //loadMORE
             searchWord = self.searchWord
             from = toRecipeApiObj
         } else {//firstSEARCH
@@ -33,6 +33,7 @@ class SearchPresenter: BasePresenter<SearchViewController, SearchModel> {
             self.searchWord = word
             toRecipeApiObj = 0
             from = 0
+            more = true
         }
         model.searchFor(word: searchWord, from: from) { result in
             switch result {
@@ -51,11 +52,16 @@ class SearchPresenter: BasePresenter<SearchViewController, SearchModel> {
     }
     
     func analizeApiObj(recipeApiObj: RecipeApiObj) -> [Recipe] {
-        more = recipeApiObj.more
         toRecipeApiObj = recipeApiObj.to
         var  recipes = [Recipe]()
-        for hit in recipeApiObj.hits {
-            recipes.append(hit.recipe)
+        if  recipeApiObj.hits.isEmpty {
+            more = false
+            print(more)
+            view.showEndOfResults()
+        } else {
+            for hit in recipeApiObj.hits {
+                recipes.append(hit.recipe)
+            }
         }
         return recipes
     }

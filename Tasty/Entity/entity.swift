@@ -47,6 +47,7 @@ enum SearchTableStates {
     case searchHistoryWords
     case error
     case loadMore
+    case endLoadMore
 }
 
 //

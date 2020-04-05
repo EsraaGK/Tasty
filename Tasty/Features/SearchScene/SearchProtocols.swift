@@ -16,6 +16,7 @@ protocol SearchPresenterProtocol {
 protocol SearchViewProtocol: BaseViewProtocol {
     func setTableViewResult(with array: [Recipe])
     func showSearchFailed()
+    func showEndOfResults()
 }
 
 protocol SearchModelProtocol: BaseModelProtocol {

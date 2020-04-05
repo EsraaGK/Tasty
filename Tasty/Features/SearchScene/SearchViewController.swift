@@ -119,13 +119,18 @@ extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate/
 extension SearchViewController: SearchViewProtocol {
     
     func setTableViewResult(with array: [Recipe]) {
-        searchTableStatus = .searchResults
-        adapter.changeTableStatusTo(status: searchTableStatus)
+//        searchTableStatus = .searchResults
+//        adapter.changeTableStatusTo(status: searchTableStatus)
         adapter.setRecipes(array: array)
         self.removeSpinner(spinnerView: spinnerView ?? UIView())
     }
     func showSearchFailed() {
          searchTableStatus = .error
+        adapter.changeTableStatusTo(status: searchTableStatus)
+    }
+    
+    func showEndOfResults() {
+        searchTableStatus = .endLoadMore
         adapter.changeTableStatusTo(status: searchTableStatus)
     }
 }

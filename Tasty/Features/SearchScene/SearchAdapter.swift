@@ -61,18 +61,11 @@ class SearchAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     func setRecipes(array: [Recipe]) {
         if array.isEmpty && recipes.isEmpty { //first time and no results
             searchTableStates = .noResults
-//            switch searchTableStates {
-//            case .firstView, .searchResults:
-//                searchTableStates = .noResults
-//            default:
-//                searchTableView.backgroundView = UIImageView(image: Asset.search.image)
-//            }
-        } else {
+        } else if searchTableStates != .endLoadMore {
             searchTableStates = .searchResults
             recipes.append(contentsOf: array)
+            reloadTableView()
         }
-        
-        print(array.count)
         print(recipes.count)
     }
     
@@ -97,7 +90,7 @@ class SearchAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == recipes.count - 2 {
+        if indexPath.row == recipes.count - 2, searchTableStates != .endLoadMore {
             searchTableStates = .loadMore
         }
         switch searchTableStates {
