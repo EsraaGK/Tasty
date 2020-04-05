@@ -30,6 +30,10 @@ class SearchAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
                 searchTableView.backgroundView = UIImageView(image: Asset.emptyResult.image)
             case .loadMore:
                  searchTableView.backgroundView = UIView(frame: .zero)
+            case .searchResults:
+                 searchTableView.backgroundView = UIView(frame: .zero)
+            case .endLoadMore:
+            searchTableView.backgroundView = UIView(frame: .zero)
             default:
                 searchTableView.backgroundView = UIImageView(image: Asset.search.image)
             }

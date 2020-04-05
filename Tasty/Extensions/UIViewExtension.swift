@@ -22,4 +22,10 @@ extension UIView {
        // self.backgroundColor = UIColor(named: "Red")
     }
     
+    
+    
+}
+
+extension UIImage {
+    
 }

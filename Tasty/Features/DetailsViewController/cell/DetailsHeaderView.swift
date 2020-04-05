@@ -27,11 +27,26 @@ class DetailsHeaderView: UIView {
                 // Fallback on earlier versions
             }
         }
+        
     }
         func configureHeaderView(imgUrlString: String, title: String ) {
             titleLable.text = title
             recipeImage.setImageWith(urlString: imgUrlString)
+            addGradient()
         }
+    
+    func addGradient() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [ UIColor.clear.cgColor,
+                                 UIColor.clear.cgColor,
+                                 UIColor.black.cgColor,
+                                 UIColor.black.cgColor]
+        gradientLayer.locations = [0, 0.3, 0.7, 1]
+       gradientLayer.frame = recipeImage.frame
+        gradientLayer.opacity = 0.9
+       recipeImage.layer.addSublayer(gradientLayer)
+    }
+
     }
     extension DetailsHeaderView {
         static var identifire: String { return String(describing: self) }
