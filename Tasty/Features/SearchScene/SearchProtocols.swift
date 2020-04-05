@@ -9,7 +9,7 @@
 import Foundation
 
 protocol SearchPresenterProtocol {
-    func searchFor(word: String, completion: (Result<Any, Error>)-> Void)
+    func searchFor(word: String, completion: (Result<Any, Error>) -> Void)
     
 }
 
@@ -19,5 +19,5 @@ protocol SearchViewProtocol: BaseViewProtocol {
 }
 
 protocol SearchModelProtocol: BaseModelProtocol {
-   func searchFor(word: String, from: Int, completion: @escaping(Result<Data, Error>) -> Void)
+    func searchFor(word: String, from: Int, completion: @escaping(Result<RecipeApiObj, Error>) -> Void)
 }

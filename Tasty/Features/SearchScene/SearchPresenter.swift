@@ -23,38 +23,26 @@ class SearchPresenter: BasePresenter<SearchViewController, SearchModel> {
     }
     
     func searchFor(word: String, searchTableStates: SearchTableStates ) {
-        
-        switch searchTableStates {
-        case .firstView:
+        var searchWord = ""
+        var from = 0
+        if searchTableStates != .firstView { //loadMORE
+            searchWord = self.searchWord
+            from = toRecipeApiObj
+        } else {//firstSEARCH
             searchWord = word
-            more = true
-            model.searchFor(word: word, from: 0) { result in
-                switch result {
-                case .success(let data):
-                    self.view.setTableViewResult(with: self.getRecipesArray(from: data))
-                case .failure(let error):
-                    print(error)
-                    self.view.showSearchFailed()
-                }
-                
-            }
-        default: // load more
-            if more {
-                model.searchFor(word: searchWord, from: toRecipeApiObj) { result in
-                    switch result {
-                    case .success(let data):
-                        self.view.setTableViewResult(with: self.getRecipesArray(from: data))
-                    case .failure(let error):
-                        print(error)
-                        self.view.showSearchFailed()
-                    }
-                }
-                
-            } else {
-                return
+            self.searchWord = word
+            toRecipeApiObj = 0
+            from = 0
+        }
+        model.searchFor(word: searchWord, from: from) { result in
+            switch result {
+            case .success(let recipeApiObj):
+                self.view.setTableViewResult(with: self.analizeApiObj(recipeApiObj: recipeApiObj))
+            case .failure(let error):
+                print(error)
+                self.view.showSearchFailed()
             }
         }
-        
     }
     
     func moveToDetailsWith(recipe: Recipe) {
@@ -62,30 +50,14 @@ class SearchPresenter: BasePresenter<SearchViewController, SearchModel> {
         moveToDetailsDelegate.moveToDetails(recipe: recipe)
     }
     
-    func getRecipesArray(from data: Data) -> [Recipe] {
-        var recipeApiObj = RecipeApiObj(from: 0, hits: [Hit](), to: 0, more: true)
-        var recipes = [Recipe]()
-        do {
-            recipeApiObj = try JSONDecoder().decode(RecipeApiObj.self, from: data)
-            toRecipeApiObj = recipeApiObj.to
-            more = recipeApiObj.more
-        } catch let error {
-            print(error)
-        }
+    func analizeApiObj(recipeApiObj: RecipeApiObj) -> [Recipe] {
+        more = recipeApiObj.more
+        toRecipeApiObj = recipeApiObj.to
+        var  recipes = [Recipe]()
         for hit in recipeApiObj.hits {
             recipes.append(hit.recipe)
         }
-        
         return recipes
     }
     
-    func searchCompletion(result: Result<Data, Error>) {
-        switch result {
-        case .success(let data):
-            self.view.setTableViewResult(with: self.getRecipesArray(from: data))
-        case .failure(let error):
-            print(error)
-            self.view.showSearchFailed()
-        }
-    }
 }

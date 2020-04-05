@@ -125,7 +125,7 @@ class SearchAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
 //
 //    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        
+//
 //    }
 //
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
