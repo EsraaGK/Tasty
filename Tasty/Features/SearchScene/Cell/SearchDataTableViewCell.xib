@@ -18,31 +18,34 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xbe-8g-OPZ">
-                        <rect key="frame" x="20" y="20" width="412" height="124"/>
+                        <rect key="frame" x="20" y="20" width="412" height="139.5"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="nNN-v5-oZB">
-                                <rect key="frame" x="12" y="8" width="123.5" height="108"/>
+                                <rect key="frame" x="12" y="8" width="123.5" height="123.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="nNN-v5-oZB" secondAttribute="height" multiplier="1:1" id="cXK-Ch-HYb"/>
+                                </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N2Q-cB-K23" userLabel="Lables View">
-                                <rect key="frame" x="143.5" y="8" width="256.5" height="108"/>
+                                <rect key="frame" x="143.5" y="8" width="256.5" height="123.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="83U-nH-wS4">
-                                        <rect key="frame" x="2" y="2" width="252.5" height="104"/>
+                                        <rect key="frame" x="2" y="2" width="252.5" height="119.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chicken" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="71f-gp-abe">
-                                                <rect key="frame" x="0.0" y="0.0" width="62" height="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="62" height="19.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By Emma" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hk2-R0-QYc">
-                                                <rect key="frame" x="0.0" y="29" width="72" height="17"/>
+                                                <rect key="frame" x="0.0" y="31.5" width="72" height="19.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This recipe is Alchol free This recipe is Alchol free This recipe is Alchol free" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AkO-ma-Iga">
-                                                <rect key="frame" x="0.0" y="58" width="243.5" height="46"/>
+                                                <rect key="frame" x="0.0" y="63" width="243.5" height="56.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -68,7 +71,7 @@
                             <constraint firstItem="nNN-v5-oZB" firstAttribute="top" secondItem="xbe-8g-OPZ" secondAttribute="top" constant="8" id="MY0-Ic-ytr"/>
                             <constraint firstItem="nNN-v5-oZB" firstAttribute="width" secondItem="xbe-8g-OPZ" secondAttribute="width" multiplier="0.3" id="P92-i2-dJ6"/>
                             <constraint firstItem="N2Q-cB-K23" firstAttribute="centerY" secondItem="xbe-8g-OPZ" secondAttribute="centerY" id="Wxg-Tt-5oR"/>
-                            <constraint firstItem="nNN-v5-oZB" firstAttribute="centerY" secondItem="xbe-8g-OPZ" secondAttribute="centerY" id="a2W-dC-cdj"/>
+                            <constraint firstItem="nNN-v5-oZB" firstAttribute="centerY" secondItem="xbe-8g-OPZ" secondAttribute="centerY" id="hQu-q1-nWQ"/>
                             <constraint firstItem="nNN-v5-oZB" firstAttribute="leading" secondItem="xbe-8g-OPZ" secondAttribute="leading" constant="12" id="qf8-nZ-c9E"/>
                             <constraint firstAttribute="bottom" secondItem="nNN-v5-oZB" secondAttribute="bottom" constant="8" id="rXL-04-zgM"/>
                         </constraints>

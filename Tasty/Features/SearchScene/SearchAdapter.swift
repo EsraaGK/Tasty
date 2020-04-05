@@ -19,15 +19,21 @@ class SearchAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             switch searchTableStates {
             case .firstView:
                 recipes.removeAll()
-                searchTableView.backgroundView = UIImageView(image: Asset.search.image)
+                let imageView = UIImageView(image: Asset.search.image)
+                imageView.contentMode = .scaleAspectFit
+                searchTableView.backgroundView = imageView
             case .error:
                 if !recipes.isEmpty {
                     searchTableView.backgroundView = UIView(frame: .zero)
                 } else {
-                    searchTableView.backgroundView = UIImageView(image: Asset.error.image)
+                    let imageView = UIImageView(image: Asset.error.image)
+                    imageView.contentMode = .scaleAspectFit
+                    searchTableView.backgroundView = imageView
                 }
             case .noResults:
-                searchTableView.backgroundView = UIImageView(image: Asset.emptyResult.image)
+                let imageView = UIImageView(image: Asset.emptyResult.image)
+                imageView.contentMode = .scaleAspectFit
+                searchTableView.backgroundView = imageView
             case .loadMore:
                  searchTableView.backgroundView = UIView(frame: .zero)
             case .searchResults:
@@ -35,7 +41,9 @@ class SearchAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             case .endLoadMore:
             searchTableView.backgroundView = UIView(frame: .zero)
             default:
-                searchTableView.backgroundView = UIImageView(image: Asset.search.image)
+                let imageView = UIImageView(image: Asset.search.image)
+                imageView.contentMode = .scaleAspectFit
+                searchTableView.backgroundView = imageView
             }
         }
     }

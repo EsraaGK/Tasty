@@ -21,6 +21,36 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         self.title = "Tasty"
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(),
+                                                                    for: UIBarPosition.any,
+                                                                    barMetrics: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+//        self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.950938046, green: 0.820579946, blue: 0.3441214561, alpha: 1)
+//        self.navigationController?.navigationBar.isTranslucent = false
+//        self.navigationController?.navigationBar.clipsToBounds = false
+        self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 0.950938046, green: 0.820579946, blue: 0.3441214561, alpha: 1)
+        self.navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.black];
+        
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
+        if #available(iOS 9.1, *) {
+            searchController.obscuresBackgroundDuringPresentation = false
+        } else {
+            // Fallback on earlier versions
+        }
+        searchController.searchResultsUpdater = self as? UISearchResultsUpdating
+        searchController.searchBar.searchBarStyle = .prominent
+        if #available(iOS 11.0, *) {
+            navigationItem.searchController = searchController
+            navigationItem.hidesSearchBarWhenScrolling = true
+        } else {
+            // Fallback on earlier versions
+        }
+        
+        //
         instatiateSearchTableView()
         instatiateSearchBar()
         if #available(iOS 11.0, *) {
@@ -40,7 +70,7 @@ class SearchViewController: UIViewController {
     
     func instatiateSearchBar() {
         searchController.delegate = self
-      //  searchController.searchResultsUpdater = self
+        //  searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
         if #available(iOS 9.1, *) {
             searchController.obscuresBackgroundDuringPresentation = false
@@ -63,25 +93,25 @@ class SearchViewController: UIViewController {
         searchTableView.reloadData()
     }
     func loadMore() {
-         presenter?.searchFor(word: "", searchTableStates: .loadMore)
+        presenter?.searchFor(word: "", searchTableStates: .loadMore)
     }
     
 }
 
 extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate/*, UISearchResultsUpdating */{
-// UISearchResultsUpdating
-//    func updateSearchResults(for searchController: UISearchController) {
-//        if let searchText = searchController.searchBar.text,
-//            !searchText.isEmpty { // display search cell
-//            self.searchTableStatus = .searchHistoryWords
-//            adapter.changeTableStatusTo(status: searchTableStatus)
-//
-//        } else {
-//            self.searchTableStatus = .searchHistoryWords
-//            adapter.changeTableStatusTo(status: searchTableStatus)
-//        }
-//
-//    }
+    // UISearchResultsUpdating
+    //    func updateSearchResults(for searchController: UISearchController) {
+    //        if let searchText = searchController.searchBar.text,
+    //            !searchText.isEmpty { // display search cell
+    //            self.searchTableStatus = .searchHistoryWords
+    //            adapter.changeTableStatusTo(status: searchTableStatus)
+    //
+    //        } else {
+    //            self.searchTableStatus = .searchHistoryWords
+    //            adapter.changeTableStatusTo(status: searchTableStatus)
+    //        }
+    //
+    //    }
     // UISearchControllerDelegate
     //    func willDismissSearchController(_ searchController: UISearchController) {
     //
@@ -96,7 +126,7 @@ extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate/
     //       // Called after the search controller's search bar has agreed to begin editing or when 'active' is set to YES. If you choose not to present the controller yourself or do not implement this method, a default presentation is performed on your behalf.
     //       @available(iOS 8.0, *)
     //       optional func presentSearchController(_ searchController: UISearchController)
-
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.searchTableStatus = .firstView
         adapter.changeTableStatusTo(status: searchTableStatus)
@@ -119,13 +149,13 @@ extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate/
 extension SearchViewController: SearchViewProtocol {
     
     func setTableViewResult(with array: [Recipe]) {
-//        searchTableStatus = .searchResults
-//        adapter.changeTableStatusTo(status: searchTableStatus)
+        //        searchTableStatus = .searchResults
+        //        adapter.changeTableStatusTo(status: searchTableStatus)
         adapter.setRecipes(array: array)
         self.removeSpinner(spinnerView: spinnerView ?? UIView())
     }
     func showSearchFailed() {
-         searchTableStatus = .error
+        searchTableStatus = .error
         adapter.changeTableStatusTo(status: searchTableStatus)
     }
     

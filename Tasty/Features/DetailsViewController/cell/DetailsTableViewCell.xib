@@ -31,6 +31,7 @@
                     <constraint firstAttribute="trailing" secondItem="BeF-hU-acN" secondAttribute="trailing" constant="12" id="xYt-ay-PKO"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" red="0.9295985699" green="0.82530266050000001" blue="0.42342859510000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="lable" destination="BeF-hU-acN" id="Huk-cN-lI1"/>
