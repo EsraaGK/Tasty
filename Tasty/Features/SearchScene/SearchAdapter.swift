@@ -79,15 +79,28 @@ class SearchAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         reloadTableView()
     }
     
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        switch searchTableStates {
+//        case .searchHistoryWords:
+//            return searchWords.count
+//        default:
+//            return recipes.count
+//        }
+//    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         switch searchTableStates {
         case .searchHistoryWords:
             return searchWords.count
         default:
             return recipes.count
         }
-        
     }
+    
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 20
+//    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == recipes.count - 2, searchTableStates != .endLoadMore {
@@ -97,16 +110,25 @@ class SearchAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .searchHistoryWords:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailsTableViewCell.identifire)
                 as? DetailsTableViewCell else { return UITableViewCell() }
-            
+            cell.addShadowAndCornerRadius()
             return cell
         default:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchDataTableViewCell.identifire)
                 as? SearchDataTableViewCell else { return UITableViewCell() }
             cell.configureSearchDataCell(with: recipes[indexPath.row])
+            cell.contentView.backgroundColor = #colorLiteral(red: 0.9572720462, green: 0.8271618151, blue: 0.3491812928, alpha: 1)
+           // cell.addShadowAndCornerRadius()
             return cell
         }
         
     }
+    
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//    let headerView = UIView()
+//    headerView.backgroundColor = UIColor.clear
+//
+//    return headerView
+//    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch searchTableStates {
