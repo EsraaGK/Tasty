@@ -79,11 +79,11 @@ class SearchPresenter: BasePresenter<SearchViewController, SearchModel> {
             return
         }
         if  searchWordsHistory.contains(searchWord) { // first search if  its already exit delete old position
-            guard let index = searchWordsHistory.firstIndex(of: searchWord) else {return}
+            guard let index = searchWordsHistory.firstIndex(of: searchWord) else { return }
             searchWordsHistory.remove(at: index)
         }
         searchWordsHistory.insert(searchWord, at: 0) // insert in the beginning
-        if searchWordsHistory.count == 10 { //check the array length 
+        if searchWordsHistory.count == 10 { //check the array length
             searchWordsHistory.remove(at: 9)
         }
         AppManger.shared.userDefaults.set(searchWordsHistory, forKey: "searchWordsHistory")

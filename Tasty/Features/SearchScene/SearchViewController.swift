@@ -19,6 +19,14 @@ class SearchViewController: UIViewController {
                                      loadMore: loadMore,
                                      searchWith: searchWith)
     var spinnerView: UIView?
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        searchController.isActive = false
+//          self.searchTableStatus = .searchResults
+//        //     DispatchQueue.main.async {
+//        //        self.searchController.searchBar.becomeFirstResponder()
+//        //      }
+//    }
     override func viewDidLoad() {
         self.title = "Tasty"
         super.viewDidLoad()
@@ -60,11 +68,7 @@ class SearchViewController: UIViewController {
         } else {
             // Fallback on earlier versions
         }
-        //        searchController.searchBar.scopeButtonTitles = ["jhhgjkgkgkjgk",
-        //                                                        "hk",
-        //                                                        "jhhgjkgkgkjgk",
-        //                                                        "hk",
-        //                                                        "jhhgjkgkgkjgk"]
+        //        searchController.searchBar.scopeButtonTitles = ["jhhgjkgkgkjgk",]
     }
     
     func moveToDetails(recipe: Recipe) {
@@ -83,25 +87,24 @@ class SearchViewController: UIViewController {
         adapter.changeTableStatusTo(status: searchTableStatus)
         spinnerView = self.showSpinner(onView: self.view)
         presenter?.searchFor(word: word, searchTableStates: .firstView)
+        searchController.searchBar.text = word
     }
-    
 }
 
 extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating {
     //  UISearchResultsUpdating
     func updateSearchResults(for searchController: UISearchController) {
-        if let searchText = searchController.searchBar.text,
+        if let searchText = searchController.searchBar.text?.trimmingCharacters(in: .whitespaces),
             !searchText.isEmpty {
-//            guard let strippedString = searchController.searchBar.text?.trimmingCharacters(in: .whitespaces) else { return }
             self.searchTableStatus = .searchHistoryWords
             adapter.changeTableStatusTo(status: searchTableStatus)
             adapter.sethistorySearch(array: presenter?.filterContentWith(searchText: searchText))
-        } else {
-            adapter.sethistorySearch(array: presenter?.getSearchWordsHistory())
+        } else if !searchController.searchBar.isFirstResponder {
+            self.searchTableStatus = .firstView
+            adapter.changeTableStatusTo(status: searchTableStatus) // i won't send data to make the adapter
         }
-        
     }
-  
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.searchTableStatus = .firstView
         adapter.changeTableStatusTo(status: searchTableStatus)
@@ -109,8 +112,8 @@ extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate,
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let strippedString = searchBar.text?.trimmingCharacters(in: .whitespaces) else { return }
-       if strippedString != "" {
-          searchWith(word: strippedString)
+        if strippedString != "" {
+            searchWith(word: strippedString)
         }
     }
     
@@ -122,6 +125,7 @@ extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate,
         searchTableStatus = .searchHistoryWords
         adapter.sethistorySearch(array: presenter?.getSearchWordsHistory())
     }
+    
 }
 
 extension SearchViewController: SearchViewProtocol {
