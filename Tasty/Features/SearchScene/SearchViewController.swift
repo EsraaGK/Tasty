@@ -122,8 +122,11 @@ extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate,
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-         let searchWord = searchBar.text ?? ""
-        searchWith(word: searchWord)
+        guard let strippedString = searchBar.text?.trimmingCharacters(in: .whitespaces) else { return }
+      //  let searchItems = strippedString.components(separatedBy: " ") as [String]
+       if strippedString != ""  {
+          searchWith(word: strippedString)
+        }
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {

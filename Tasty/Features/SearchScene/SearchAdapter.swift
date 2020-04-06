@@ -43,7 +43,9 @@ class SearchAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             case .endLoadMore:
             searchTableView.backgroundView = UIView(frame: .zero)
             case .searchHistoryWords:
+                if !searchWords.isEmpty {
             searchTableView.backgroundView = UIView(frame: .zero)
+                }
             default:
                 let imageView = UIImageView(image: Asset.search.image)
                 imageView.contentMode = .scaleAspectFit
