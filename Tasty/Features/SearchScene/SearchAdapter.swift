@@ -13,6 +13,7 @@ class SearchAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     let searchTableView: UITableView
     let reloadTableView: () -> Void
     let loadMore: () -> Void
+    let searchWith: (String) -> Void
     let moveToDetails: (Recipe) -> Void
     var searchTableStates = SearchTableStates.searchHistoryWords {
         didSet {
@@ -40,6 +41,8 @@ class SearchAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
                  searchTableView.backgroundView = UIView(frame: .zero)
             case .endLoadMore:
             searchTableView.backgroundView = UIView(frame: .zero)
+            case .searchHistoryWords:
+            searchTableView.backgroundView = UIView(frame: .zero)
             default:
                 let imageView = UIImageView(image: Asset.search.image)
                 imageView.contentMode = .scaleAspectFit
@@ -61,16 +64,19 @@ class SearchAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     init(searchTableView: UITableView,
          reloadTableView: @escaping() -> Void,
          moveToDetails:@escaping(Recipe) -> Void,
-         loadMore: @escaping() -> Void) {
+         loadMore: @escaping() -> Void,
+         searchWith: @escaping(String) -> Void) {
         self.searchTableView = searchTableView
         self.reloadTableView = reloadTableView
         self.moveToDetails = moveToDetails
+        self.searchWith = searchWith
         self.loadMore = loadMore
         recipes = [Recipe]()
         searchWords = [String]()
     }
     
     func setRecipes(array: [Recipe]) {
+        searchWords.removeAll()
         if array.isEmpty && recipes.isEmpty { //first time and no results
             searchTableStates = .noResults
         } else if searchTableStates != .endLoadMore {
@@ -80,7 +86,13 @@ class SearchAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         }
         print(recipes.count)
     }
-    
+    func sethistorySearch(array: [String]?) {
+        searchWords.removeAll()
+        guard let words = array else { return }
+        searchWords.append(contentsOf: words)
+        changeTableStatusTo(status: .searchHistoryWords)
+        
+    }
     func setDelegates() {
         searchTableView.delegate = self
         searchTableView.dataSource = self
@@ -122,7 +134,8 @@ class SearchAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .searchHistoryWords:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailsTableViewCell.identifire)
                 as? DetailsTableViewCell else { return UITableViewCell() }
-            cell.addShadowAndCornerRadius()
+            cell.configureCell(with: searchWords[indexPath.row])
+            cell.contentView.backgroundColor = #colorLiteral(red: 0.9572720462, green: 0.8271618151, blue: 0.3491812928, alpha: 1)
             return cell
         default:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchDataTableViewCell.identifire)
@@ -145,6 +158,7 @@ class SearchAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch searchTableStates {
         case .searchHistoryWords:
+            searchWith(searchWords[indexPath.row])
             print("search")
         default:
             moveToDetails(recipes[indexPath.row])

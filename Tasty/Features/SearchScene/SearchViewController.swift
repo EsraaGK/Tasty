@@ -16,12 +16,13 @@ class SearchViewController: UIViewController {
     lazy var adapter = SearchAdapter(searchTableView: searchTableView,
                                      reloadTableView: reloadSearchTable,
                                      moveToDetails: moveToDetails,
-                                     loadMore: loadMore)
+                                     loadMore: loadMore,
+                                     searchWith: searchWith)
     var spinnerView: UIView?
     override func viewDidLoad() {
         self.title = "Tasty"
         super.viewDidLoad()
-  
+        
         instatiateSearchTableView()
         instatiateSearchBar()
         if #available(iOS 11.0, *) {
@@ -36,6 +37,8 @@ class SearchViewController: UIViewController {
         adapter.setDelegates()
         searchTableView.register(SearchDataTableViewCell.nib,
                                  forCellReuseIdentifier: SearchDataTableViewCell.identifire)
+        searchTableView.register(DetailsTableViewCell.nib,
+                                 forCellReuseIdentifier: DetailsTableViewCell.identifire)
         searchTableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
@@ -50,10 +53,18 @@ class SearchViewController: UIViewController {
         }
         searchController.searchBar.placeholder = "Type something here..."
         if #available(iOS 11.0, *) {
+            // Place the search bar in the navigation bar.
             navigationItem.searchController = searchController
+            // Make the search bar always visible.
+            navigationItem.hidesSearchBarWhenScrolling = false
         } else {
             // Fallback on earlier versions
         }
+        //        searchController.searchBar.scopeButtonTitles = ["jhhgjkgkgkjgk",
+        //                                                        "hk",
+        //                                                        "jhhgjkgkgkjgk",
+        //                                                        "hk",
+        //                                                        "jhhgjkgkgkjgk"]
     }
     
     func moveToDetails(recipe: Recipe) {
@@ -67,22 +78,29 @@ class SearchViewController: UIViewController {
         presenter?.searchFor(word: "", searchTableStates: .loadMore)
     }
     
+    func searchWith(word: String) {
+        searchTableStatus = .firstView
+        adapter.changeTableStatusTo(status: searchTableStatus)
+        spinnerView = self.showSpinner(onView: self.view)
+        presenter?.searchFor(word: word, searchTableStates: .firstView)
+    }
+    
 }
 
 extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating {
-   //  UISearchResultsUpdating
-        func updateSearchResults(for searchController: UISearchController) {
-            if let searchText = searchController.searchBar.text,
-                !searchText.isEmpty { // display search cell
-                self.searchTableStatus = .searchHistoryWords
-                adapter.changeTableStatusTo(status: searchTableStatus)
-    
-            } else {
-                self.searchTableStatus = .searchHistoryWords
-                adapter.changeTableStatusTo(status: searchTableStatus)
-            }
-    
+    //  UISearchResultsUpdating
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text,
+            !searchText.isEmpty { // display search cell
+            self.searchTableStatus = .searchHistoryWords
+            adapter.changeTableStatusTo(status: searchTableStatus)
+            
+        } else {
+            self.searchTableStatus = .searchHistoryWords
+            adapter.changeTableStatusTo(status: searchTableStatus)
         }
+        
+    }
     // UISearchControllerDelegate
     //    func willDismissSearchController(_ searchController: UISearchController) {
     //
@@ -104,16 +122,17 @@ extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate,
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.searchTableStatus = .firstView
-        adapter.changeTableStatusTo(status: searchTableStatus)
-        spinnerView = self.showSpinner(onView: self.view)
-        let searchWord = searchController.searchBar.text ?? ""
-        presenter?.searchFor(word: searchWord, searchTableStates: .firstView)
+         let searchWord = searchBar.text ?? ""
+        searchWith(word: searchWord)
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchTableStatus = .searchHistoryWords
         adapter.changeTableStatusTo(status: searchTableStatus)
+    }
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchTableStatus = .searchHistoryWords
+        adapter.sethistorySearch(array: presenter?.getSearchWordsHistory())
     }
 }
 

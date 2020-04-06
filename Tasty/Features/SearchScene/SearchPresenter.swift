@@ -67,9 +67,12 @@ class SearchPresenter: BasePresenter<SearchViewController, SearchModel> {
         return recipes
     }
     
+    func getSearchWordsHistory() -> [String]? {
+        return AppManger.shared.userDefaults.object(forKey: "searchWordsHistory") as? [String]
+    }
+    
     func saveInUserDefaults() {
-        guard var  searchWordsHistory = AppManger.shared.userDefaults.object(forKey: "searchWordsHistory")
-            as? [String] else {
+        guard var  searchWordsHistory = getSearchWordsHistory() else {
                 // Create and Write Array of Strings
                 let array = [searchWord]
                 AppManger.shared.userDefaults.set(array, forKey: "searchWordsHistory")
