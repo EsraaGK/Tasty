@@ -19,20 +19,14 @@ class SearchViewController: UIViewController {
                                      loadMore: loadMore,
                                      searchWith: searchWith)
     var spinnerView: UIView?
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        searchController.isActive = false
-//          self.searchTableStatus = .searchResults
-//        //     DispatchQueue.main.async {
-//        //        self.searchController.searchBar.becomeFirstResponder()
-//        //      }
-//    }
+    
     override func viewDidLoad() {
         self.title = "Tasty"
         super.viewDidLoad()
         
         instatiateSearchTableView()
         instatiateSearchBar()
+        
         if #available(iOS 11.0, *) {
             navigationItem.searchController = searchController
         } else {
@@ -41,6 +35,14 @@ class SearchViewController: UIViewController {
         definesPresentationContext = true
     }
     
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        searchController.searchBar.resignFirstResponder()
+//        print(searchTableStatus)
+//    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        print(searchTableStatus)
+//    }
     func instatiateSearchTableView() {
         adapter.setDelegates()
         searchTableView.register(SearchDataTableViewCell.nib,
@@ -72,6 +74,8 @@ class SearchViewController: UIViewController {
     }
     
     func moveToDetails(recipe: Recipe) {
+        searchTableStatus = .searchResults
+        searchController.searchBar.text = ""
         presenter?.moveToDetailsWith(recipe: recipe)
     }
     
@@ -88,21 +92,27 @@ class SearchViewController: UIViewController {
         spinnerView = self.showSpinner(onView: self.view)
         presenter?.searchFor(word: word, searchTableStates: .firstView)
         searchController.searchBar.text = word
+        searchController.view.endEditing(true)
+        searchController.searchBar.resignFirstResponder()
     }
 }
 
 extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating {
     //  UISearchResultsUpdating
+    
     func updateSearchResults(for searchController: UISearchController) {
-        if let searchText = searchController.searchBar.text?.trimmingCharacters(in: .whitespaces),
-            !searchText.isEmpty {
+        
+//        if !searchController.searchBar.isFirstResponder {
+//            self.searchTableStatus = .firstView
+//            adapter.changeTableStatusTo(status: searchTableStatus) // i won't send data to make the adapter
+//        }
+          print(searchController.searchBar.isFirstResponder )
+        guard let searchText = searchController.searchBar.text?.trimmingCharacters(in: .whitespaces),
+            !searchText.isEmpty else { return }
             self.searchTableStatus = .searchHistoryWords
             adapter.changeTableStatusTo(status: searchTableStatus)
             adapter.sethistorySearch(array: presenter?.filterContentWith(searchText: searchText))
-        } else if !searchController.searchBar.isFirstResponder {
-            self.searchTableStatus = .firstView
-            adapter.changeTableStatusTo(status: searchTableStatus) // i won't send data to make the adapter
-        }
+        
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -111,6 +121,9 @@ extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate,
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+         searchBar.resignFirstResponder()
+        self.navigationController?.view.endEditing(true)
+
         guard let strippedString = searchBar.text?.trimmingCharacters(in: .whitespaces) else { return }
         if strippedString != "" {
             searchWith(word: strippedString)
@@ -118,7 +131,7 @@ extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate,
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchTableStatus = .searchHistoryWords
+        searchTableStatus = .searchResults
         adapter.changeTableStatusTo(status: searchTableStatus)
     }
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {

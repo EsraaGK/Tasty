@@ -175,8 +175,7 @@ class SearchAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         let offset = CGFloat(integerLiteral: 200)
         let bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height;
         if (bottomEdge + offset >= scrollView.contentSize.height) {
-            if searchTableStates == .loadMore {
-            // if indexPath.row == recipes.count - 2 {
+            if searchTableStates == .loadMore , searchWords.isEmpty {
                      loadMore()
                      searchTableStates = .searchResults
                  }
