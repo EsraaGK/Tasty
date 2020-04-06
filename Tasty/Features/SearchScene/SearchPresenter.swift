@@ -73,17 +73,25 @@ class SearchPresenter: BasePresenter<SearchViewController, SearchModel> {
     
     func saveInUserDefaults() {
         guard var  searchWordsHistory = getSearchWordsHistory() else {
-                // Create and Write Array of Strings
-                let array = [searchWord]
-                AppManger.shared.userDefaults.set(array, forKey: "searchWordsHistory")
-                return
+            // Create and Write Array of Strings
+            let array = [searchWord]
+            AppManger.shared.userDefaults.set(array, forKey: "searchWordsHistory")
+            return
         }
-        searchWordsHistory.insert(searchWord, at: 0)
-        if searchWordsHistory.count == 10 {
+        if  searchWordsHistory.contains(searchWord) { // first search if  its already exit delete old position
+            guard let index = searchWordsHistory.firstIndex(of: searchWord) else {return}
+            searchWordsHistory.remove(at: index)
+        }
+        searchWordsHistory.insert(searchWord, at: 0) // insert in the beginning
+        if searchWordsHistory.count == 10 { //check the array length 
             searchWordsHistory.remove(at: 9)
         }
-        print(searchWordsHistory)
         AppManger.shared.userDefaults.set(searchWordsHistory, forKey: "searchWordsHistory")
+    }
+    
+    func filterContentWith(searchText: String) -> [String] {
+        guard let historyWords = getSearchWordsHistory() else { return [String]() }
+        return  historyWords.filter { $0.lowercased().contains(searchText.lowercased()) }
     }
     
 }

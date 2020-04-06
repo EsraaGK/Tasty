@@ -91,31 +91,17 @@ extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate,
     //  UISearchResultsUpdating
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text,
-            !searchText.isEmpty { // display search cell
+            !searchText.isEmpty {
+//            guard let strippedString = searchController.searchBar.text?.trimmingCharacters(in: .whitespaces) else { return }
             self.searchTableStatus = .searchHistoryWords
             adapter.changeTableStatusTo(status: searchTableStatus)
-            
+            adapter.sethistorySearch(array: presenter?.filterContentWith(searchText: searchText))
         } else {
-            self.searchTableStatus = .searchHistoryWords
-            adapter.changeTableStatusTo(status: searchTableStatus)
+            adapter.sethistorySearch(array: presenter?.getSearchWordsHistory())
         }
         
     }
-    // UISearchControllerDelegate
-    //    func willDismissSearchController(_ searchController: UISearchController) {
-    //
-    //    }
-    //     func willPresentSearchController(_ searchController: UISearchController)
-    //
-    //       func didPresentSearchController(_ searchController: UISearchController)
-    //
-    // func didDismissSearchController(_ searchController: UISearchController)
-    //
-    //
-    //       // Called after the search controller's search bar has agreed to begin editing or when 'active' is set to YES. If you choose not to present the controller yourself or do not implement this method, a default presentation is performed on your behalf.
-    //       @available(iOS 8.0, *)
-    //       optional func presentSearchController(_ searchController: UISearchController)
-    
+  
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.searchTableStatus = .firstView
         adapter.changeTableStatusTo(status: searchTableStatus)
@@ -123,8 +109,7 @@ extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate,
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let strippedString = searchBar.text?.trimmingCharacters(in: .whitespaces) else { return }
-      //  let searchItems = strippedString.components(separatedBy: " ") as [String]
-       if strippedString != ""  {
+       if strippedString != "" {
           searchWith(word: strippedString)
         }
     }
