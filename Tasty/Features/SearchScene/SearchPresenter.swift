@@ -68,10 +68,16 @@ class SearchPresenter: BasePresenter<SearchViewController, SearchModel> {
     }
     
     func saveInUserDefaults() {
-        var searchWordsHistory = AppManger.shared.userDefaults.object(forKey: "searchWordsHistory") as? [String]
-        searchWordsHistory?.insert(searchWord, at: 0)
-        if searchWordsHistory?.count == 10 {
-        searchWordsHistory?.remove(at: 9)
+        guard var  searchWordsHistory = AppManger.shared.userDefaults.object(forKey: "searchWordsHistory")
+            as? [String] else {
+                // Create and Write Array of Strings
+                let array = [searchWord]
+                AppManger.shared.userDefaults.set(array, forKey: "searchWordsHistory")
+                return
+        }
+        searchWordsHistory.insert(searchWord, at: 0)
+        if searchWordsHistory.count == 10 {
+            searchWordsHistory.remove(at: 9)
         }
         print(searchWordsHistory)
         AppManger.shared.userDefaults.set(searchWordsHistory, forKey: "searchWordsHistory")
