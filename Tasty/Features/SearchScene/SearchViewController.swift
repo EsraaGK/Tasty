@@ -121,9 +121,6 @@ extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate,
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-         searchBar.resignFirstResponder()
-        self.navigationController?.view.endEditing(true)
-
         guard let strippedString = searchBar.text?.trimmingCharacters(in: .whitespaces) else { return }
         if strippedString != "" {
             searchWith(word: strippedString)
@@ -131,7 +128,7 @@ extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate,
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchTableStatus = .searchResults
+        searchTableStatus = .firstView
         adapter.changeTableStatusTo(status: searchTableStatus)
     }
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
