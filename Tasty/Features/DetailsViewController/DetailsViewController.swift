@@ -23,6 +23,7 @@ class DetailsViewController: UIViewController, DetailsViewProtocol {
     func instatiateIngrediantTableView() {
         ingrediantTable.delegate = self
         ingrediantTable.dataSource = self
+        ingrediantTable.isUserInteractionEnabled = false;
         ingrediantTable.register(DetailsTableViewCell.nib,
                                  forCellReuseIdentifier: DetailsTableViewCell.identifire)
 //        ingrediantTable.register(DetailsTableViewHeader.nib,

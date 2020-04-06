@@ -19,6 +19,7 @@ class SearchAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         didSet {
             switch searchTableStates {
             case .firstView:
+                searchWords.removeAll()
                 recipes.removeAll()
                 let imageView = UIImageView(image: Asset.search.image)
                 imageView.contentMode = .scaleAspectFit
@@ -159,7 +160,6 @@ class SearchAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         switch searchTableStates {
         case .searchHistoryWords:
             searchWith(searchWords[indexPath.row])
-            print("search")
         default:
             moveToDetails(recipes[indexPath.row])
         }

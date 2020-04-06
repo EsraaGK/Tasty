@@ -14,7 +14,6 @@ class DetailsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
     func configureCell(with text: String) {
         lable.text = text
