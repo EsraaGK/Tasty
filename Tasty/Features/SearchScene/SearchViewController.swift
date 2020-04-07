@@ -27,22 +27,9 @@ class SearchViewController: UIViewController {
         instatiateSearchTableView()
         instatiateSearchBar()
         
-        if #available(iOS 11.0, *) {
-            navigationItem.searchController = searchController
-        } else {
-            // Fallback on earlier versions
-        }
-        definesPresentationContext = true
+        
     }
     
-    //    override func viewWillDisappear(_ animated: Bool) {
-    //        super.viewWillDisappear(animated)
-    //        searchController.searchBar.resignFirstResponder()
-    //        print(searchTableStatus)
-    //    }
-    //    override func viewWillAppear(_ animated: Bool) {
-    //        print(searchTableStatus)
-    //    }
     func instatiateSearchTableView() {
         adapter.setDelegates()
         searchTableView.register(SearchDataTableViewCell.nib,
@@ -70,7 +57,7 @@ class SearchViewController: UIViewController {
         } else {
             // Fallback on earlier versions
         }
-        //        searchController.searchBar.scopeButtonTitles = ["jhhgjkgkgkjgk",]
+        definesPresentationContext = true
     }
     
     func moveToDetails(recipe: Recipe) {
@@ -87,11 +74,27 @@ class SearchViewController: UIViewController {
     }
     
     func searchWith(word: String) {
+        var finalSearchString  = word
         searchTableStatus = .firstView
         adapter.changeTableStatusTo(status: searchTableStatus)
         spinnerView = self.showSpinner(onView: self.view)
-        presenter?.searchFor(word: word, searchTableStates: .firstView)
-        searchController.searchBar.text = word
+        
+        if #available(iOS 13.0, *) {
+            let tokens = searchController.searchBar.searchTextField.tokens
+            if !tokens.isEmpty {
+                 finalSearchString = getTockenString(tokens: tokens) + word
+                searchController.searchBar.searchTextField.removeToken(at: 0)
+            }
+            let iosToken = UISearchToken(icon: UIImage(systemName: "tag"), text: finalSearchString)
+            searchController.searchBar.searchTextField.insertToken(iosToken, at: 0)
+            searchController.searchBar.searchTextField.tokenBackgroundColor = .gray
+            searchController.searchBar.text = ""
+
+        } else {
+            // Fallback on earlier versions
+            searchController.searchBar.text = finalSearchString
+        }
+        presenter?.searchFor(word: finalSearchString, searchTableStates: .firstView)
         searchController.view.endEditing(true)
         searchController.searchBar.resignFirstResponder()
     }
@@ -102,11 +105,6 @@ extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate,
     
     func updateSearchResults(for searchController: UISearchController) {
         
-        //        if !searchController.searchBar.isFirstResponder {
-        //            self.searchTableStatus = .firstView
-        //            adapter.changeTableStatusTo(status: searchTableStatus) // i won't send data to make the adapter
-        //        }
-        //          print(searchController.searchBar.isFirstResponder )
         guard let searchText = searchController.searchBar.text?.trimmingCharacters(in: .whitespaces),
             !searchText.isEmpty else { return }
         self.searchTableStatus = .searchHistoryWords
@@ -128,9 +126,22 @@ extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate,
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let strippedString = searchBar.text?.trimmingCharacters(in: .whitespaces) else { return }
-        if strippedString != "" {
-            searchWith(word: strippedString)
+        if strippedString != ""{
+        searchWith(word: strippedString)
         }
+        
+    }
+    
+    @available(iOS 13.0, *)
+    func getTockenString(tokens: [UISearchToken]) -> String {
+        var tokensString = ""
+        for token in tokens {
+            let dictionary = token.dictionaryWithValues(forKeys: ["text"])
+            let string = (dictionary["text"] as? String ?? "") + " "
+            tokensString += string
+            
+        }
+        return tokensString
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
@@ -143,6 +154,7 @@ extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate,
         }
     }
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
         searchTableStatus = .searchHistoryWords
         adapter.sethistorySearch(array: presenter?.getSearchWordsHistory())
     }
@@ -152,8 +164,6 @@ extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate,
 extension SearchViewController: SearchViewProtocol {
     
     func setTableViewResult(with array: [Recipe]) {
-        //        searchTableStatus = .searchResults
-        //        adapter.changeTableStatusTo(status: searchTableStatus)
         adapter.setRecipes(array: array)
         self.removeSpinner(spinnerView: spinnerView ?? UIView())
     }
