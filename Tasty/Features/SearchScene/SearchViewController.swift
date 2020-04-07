@@ -27,22 +27,9 @@ class SearchViewController: UIViewController {
         instatiateSearchTableView()
         instatiateSearchBar()
         
-        if #available(iOS 11.0, *) {
-            navigationItem.searchController = searchController
-        } else {
-            // Fallback on earlier versions
-        }
-        definesPresentationContext = true
+        
     }
     
-    //    override func viewWillDisappear(_ animated: Bool) {
-    //        super.viewWillDisappear(animated)
-    //        searchController.searchBar.resignFirstResponder()
-    //        print(searchTableStatus)
-    //    }
-    //    override func viewWillAppear(_ animated: Bool) {
-    //        print(searchTableStatus)
-    //    }
     func instatiateSearchTableView() {
         adapter.setDelegates()
         searchTableView.register(SearchDataTableViewCell.nib,
@@ -70,7 +57,7 @@ class SearchViewController: UIViewController {
         } else {
             // Fallback on earlier versions
         }
-        //        searchController.searchBar.scopeButtonTitles = ["jhhgjkgkgkjgk",]
+        definesPresentationContext = true
     }
     
     func moveToDetails(recipe: Recipe) {
@@ -91,6 +78,14 @@ class SearchViewController: UIViewController {
         adapter.changeTableStatusTo(status: searchTableStatus)
         spinnerView = self.showSpinner(onView: self.view)
         presenter?.searchFor(word: word, searchTableStates: .firstView)
+//        if #available(iOS 13.0, *) {
+//            let iosToken = UISearchToken(icon: UIImage(systemName: "tag"), text: word)
+//            searchController.searchBar.searchTextField.insertToken(iosToken, at: 0)
+//            searchController.searchBar.searchTextField.tokenBackgroundColor = .gray
+//        } else {
+//            // Fallback on earlier versions
+//
+//        }
         searchController.searchBar.text = word
         searchController.view.endEditing(true)
         searchController.searchBar.resignFirstResponder()
@@ -102,11 +97,6 @@ extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate,
     
     func updateSearchResults(for searchController: UISearchController) {
         
-        //        if !searchController.searchBar.isFirstResponder {
-        //            self.searchTableStatus = .firstView
-        //            adapter.changeTableStatusTo(status: searchTableStatus) // i won't send data to make the adapter
-        //        }
-        //          print(searchController.searchBar.isFirstResponder )
         guard let searchText = searchController.searchBar.text?.trimmingCharacters(in: .whitespaces),
             !searchText.isEmpty else { return }
         self.searchTableStatus = .searchHistoryWords
@@ -152,8 +142,6 @@ extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate,
 extension SearchViewController: SearchViewProtocol {
     
     func setTableViewResult(with array: [Recipe]) {
-        //        searchTableStatus = .searchResults
-        //        adapter.changeTableStatusTo(status: searchTableStatus)
         adapter.setRecipes(array: array)
         self.removeSpinner(spinnerView: spinnerView ?? UIView())
     }
