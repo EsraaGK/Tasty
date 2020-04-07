@@ -74,19 +74,27 @@ class SearchViewController: UIViewController {
     }
     
     func searchWith(word: String) {
+        var finalSearchString  = word
         searchTableStatus = .firstView
         adapter.changeTableStatusTo(status: searchTableStatus)
         spinnerView = self.showSpinner(onView: self.view)
-        presenter?.searchFor(word: word, searchTableStates: .firstView)
-//        if #available(iOS 13.0, *) {
-//            let iosToken = UISearchToken(icon: UIImage(systemName: "tag"), text: word)
-//            searchController.searchBar.searchTextField.insertToken(iosToken, at: 0)
-//            searchController.searchBar.searchTextField.tokenBackgroundColor = .gray
-//        } else {
-//            // Fallback on earlier versions
-//
-//        }
-        searchController.searchBar.text = word
+        
+        if #available(iOS 13.0, *) {
+            let tokens = searchController.searchBar.searchTextField.tokens
+            if !tokens.isEmpty {
+                 finalSearchString = getTockenString(tokens: tokens) + word
+                searchController.searchBar.searchTextField.removeToken(at: 0)
+            }
+            let iosToken = UISearchToken(icon: UIImage(systemName: "tag"), text: finalSearchString)
+            searchController.searchBar.searchTextField.insertToken(iosToken, at: 0)
+            searchController.searchBar.searchTextField.tokenBackgroundColor = .gray
+            searchController.searchBar.text = ""
+
+        } else {
+            // Fallback on earlier versions
+            searchController.searchBar.text = finalSearchString
+        }
+        presenter?.searchFor(word: finalSearchString, searchTableStates: .firstView)
         searchController.view.endEditing(true)
         searchController.searchBar.resignFirstResponder()
     }
@@ -118,9 +126,22 @@ extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate,
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let strippedString = searchBar.text?.trimmingCharacters(in: .whitespaces) else { return }
-        if strippedString != "" {
-            searchWith(word: strippedString)
+        if strippedString != ""{
+        searchWith(word: strippedString)
         }
+        
+    }
+    
+    @available(iOS 13.0, *)
+    func getTockenString(tokens: [UISearchToken]) -> String {
+        var tokensString = ""
+        for token in tokens {
+            let dictionary = token.dictionaryWithValues(forKeys: ["text"])
+            let string = (dictionary["text"] as? String ?? "") + " "
+            tokensString += string
+            
+        }
+        return tokensString
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
@@ -133,6 +154,7 @@ extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate,
         }
     }
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
         searchTableStatus = .searchHistoryWords
         adapter.sethistorySearch(array: presenter?.getSearchWordsHistory())
     }
