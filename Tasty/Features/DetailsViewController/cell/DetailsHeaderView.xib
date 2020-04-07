@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailsHeaderView" customModule="Tasty" customModuleProvider="target">
+            <connections>
+                <outlet property="recipeImage" destination="VLO-Bb-ysS" id="QlG-lh-0XH"/>
+                <outlet property="titleLable" destination="UCR-hs-hZ1" id="0G2-uW-Oxe"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="95r-hi-zat">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="VLO-Bb-ysS">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EmmaEmmaEmma\" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCR-hs-hZ1">
+                            <rect key="frame" x="12" y="238" width="328" height="50"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvq-ai-Pmq">
+                            <rect key="frame" x="352" y="238" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="61a-z9-mbP"/>
+                                <constraint firstAttribute="width" constant="50" id="CPF-8S-Ib3"/>
+                            </constraints>
+                            <state key="normal" title="Visite Site" image="safari">
+                                <color key="titleShadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="visitSource:" destination="-1" eventType="touchUpInside" id="tt6-pJ-EMS"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="VLO-Bb-ysS" firstAttribute="leading" secondItem="95r-hi-zat" secondAttribute="leading" id="4Uq-dh-Ps8"/>
+                        <constraint firstAttribute="trailing" secondItem="VLO-Bb-ysS" secondAttribute="trailing" id="5PN-TF-kQ4"/>
+                        <constraint firstItem="VLO-Bb-ysS" firstAttribute="bottom" secondItem="cvq-ai-Pmq" secondAttribute="bottom" constant="12" id="92l-me-kSp"/>
+                        <constraint firstAttribute="bottom" secondItem="VLO-Bb-ysS" secondAttribute="bottom" id="CLT-ql-HOc"/>
+                        <constraint firstItem="UCR-hs-hZ1" firstAttribute="leading" secondItem="VLO-Bb-ysS" secondAttribute="leading" constant="12" id="GL3-qc-KoK"/>
+                        <constraint firstItem="VLO-Bb-ysS" firstAttribute="bottom" secondItem="UCR-hs-hZ1" secondAttribute="bottom" constant="12" id="VjO-XC-VgV"/>
+                        <constraint firstItem="cvq-ai-Pmq" firstAttribute="leading" secondItem="UCR-hs-hZ1" secondAttribute="trailing" constant="12" id="auL-d8-f2v"/>
+                        <constraint firstItem="cvq-ai-Pmq" firstAttribute="centerY" secondItem="UCR-hs-hZ1" secondAttribute="centerY" id="czF-0r-A5J"/>
+                        <constraint firstItem="VLO-Bb-ysS" firstAttribute="top" secondItem="95r-hi-zat" secondAttribute="top" id="ovl-I7-z4g"/>
+                        <constraint firstItem="VLO-Bb-ysS" firstAttribute="trailing" secondItem="cvq-ai-Pmq" secondAttribute="trailing" constant="12" id="zL1-mI-2ik"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="95r-hi-zat" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="1F8-B4-cuj"/>
+                <constraint firstItem="95r-hi-zat" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="GUw-XC-tnB"/>
+                <constraint firstItem="95r-hi-zat" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="YX8-GL-6Jb"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="95r-hi-zat" secondAttribute="bottom" id="cfO-hQ-zNK"/>
+                <constraint firstItem="95r-hi-zat" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ief-XB-wf4"/>
+                <constraint firstAttribute="trailing" secondItem="95r-hi-zat" secondAttribute="trailing" id="jwY-E2-bmw"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="137.68115942028987" y="-116.18303571428571"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="placeholder" width="450" height="450"/>
+        <image name="safari" width="1024" height="1024"/>
+    </resources>
+</document>

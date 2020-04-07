@@ -15,7 +15,7 @@ class ApplicationCoordinator: Coordinator {
     
     init(window: UIWindow) {
         self.window = window
-        presenter = UINavigationController()
+        presenter = ApplicationNavigationController()//UINavigationController()
         searchCoordinator = SearchCoordinator(presenter: presenter ?? UINavigationController())
     }
     

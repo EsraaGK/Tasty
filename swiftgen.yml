@@ -1,23 +1,11 @@
 input_dir: Tasty
 output_dir: Tasty
-strings:
-  inputs:
-    - Resources/Localization/en.lproj/Localizable.strings
-  outputs:
-    templatePath: ./APPStringsTemplete.stencil
-    output: Resources/Localization/Localized.swift
-  fallback: Base
 custom_rules:
   swiftgen_strings:
     name: "SwiftGen Strings"
     regex: 'NSLocalizedString'
     message: "Use L10n.key instead"
     severity: error
-fonts:
-  inputs: Resources/Fonts
-  outputs:
-    templateName: swift4
-    output: Resources/Fonts/Fonts.swift
 xcassets:
   inputs:
     - Resources/Assets/Assets.xcassets

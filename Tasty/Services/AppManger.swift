@@ -7,15 +7,18 @@
 //
 
 import UIKit
+import Moya
 
 class AppManger {
     static let shared = AppManger()
+    let userDefaults = UserDefaults.standard
     var window: UIWindow?
     var applicationCoordinator: ApplicationCoordinator?
+    var apiService = MoyaProvider<EdamamServices>()
     init() {
     }
     
-   static func launchApp() {
+    static func launchApp() {
         if #available(iOS 13, *) {
             //Scene Delegate will call  initWindow(windowScene: UIWindowScene)
         } else {
@@ -23,20 +26,19 @@ class AppManger {
         }
     }
     
-   static func initWindow() {
-    AppManger.shared.window = UIWindow(frame: UIScreen.main.bounds)
-    startAppCoordinator()
+    static func initWindow() {
+        AppManger.shared.window = UIWindow(frame: UIScreen.main.bounds)
+        startAppCoordinator()
     }
     
     @available(iOS 13.0, *)
-  static  func initWindowWithScene(windowScene: UIWindowScene) {
-            AppManger.shared.window = UIWindow(windowScene: windowScene)
-            startAppCoordinator()
-        }
+    static  func initWindowWithScene(windowScene: UIWindowScene) {
+        AppManger.shared.window = UIWindow(windowScene: windowScene)
+        startAppCoordinator()
+    }
     static func startAppCoordinator() {
         AppManger.shared.applicationCoordinator = ApplicationCoordinator(
-                     window: AppManger.shared.window ?? UIWindow())
-             AppManger.shared.applicationCoordinator?.start()
-               
+            window: AppManger.shared.window ?? UIWindow())
+        AppManger.shared.applicationCoordinator?.start()
     }
 }
