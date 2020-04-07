@@ -28,6 +28,7 @@ class SearchDataTableViewCell: UITableViewCell {
     func configureSearchDataCell(with recipe: Recipe) {
         backGroungView.addShadowAndCornerRadius()
         recipeImage.setImageWith(urlString: recipe.image)
+        recipeImage.makeCorersRounded()
         recipeTitleLable.text = recipe.label
         sourceLable.text = recipe.source
         healthLable.text = concat(array: recipe.healthLabels ?? [String]())

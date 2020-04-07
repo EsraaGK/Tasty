@@ -17,4 +17,9 @@ extension UIImageView {
         self.kf.setImage(with: url, placeholder: Asset.placeholder.image)
         
     }
+    
+    func makeCorersRounded() {
+        self.layer.cornerRadius = self.bounds.size.width / 9.0
+         self.clipsToBounds = true
+    }
 }
