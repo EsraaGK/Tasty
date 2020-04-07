@@ -35,14 +35,14 @@ class SearchViewController: UIViewController {
         definesPresentationContext = true
     }
     
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        searchController.searchBar.resignFirstResponder()
-//        print(searchTableStatus)
-//    }
-//    override func viewWillAppear(_ animated: Bool) {
-//        print(searchTableStatus)
-//    }
+    //    override func viewWillDisappear(_ animated: Bool) {
+    //        super.viewWillDisappear(animated)
+    //        searchController.searchBar.resignFirstResponder()
+    //        print(searchTableStatus)
+    //    }
+    //    override func viewWillAppear(_ animated: Bool) {
+    //        print(searchTableStatus)
+    //    }
     func instatiateSearchTableView() {
         adapter.setDelegates()
         searchTableView.register(SearchDataTableViewCell.nib,
@@ -102,22 +102,28 @@ extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate,
     
     func updateSearchResults(for searchController: UISearchController) {
         
-//        if !searchController.searchBar.isFirstResponder {
-//            self.searchTableStatus = .firstView
-//            adapter.changeTableStatusTo(status: searchTableStatus) // i won't send data to make the adapter
-//        }
-          print(searchController.searchBar.isFirstResponder )
+        //        if !searchController.searchBar.isFirstResponder {
+        //            self.searchTableStatus = .firstView
+        //            adapter.changeTableStatusTo(status: searchTableStatus) // i won't send data to make the adapter
+        //        }
+        //          print(searchController.searchBar.isFirstResponder )
         guard let searchText = searchController.searchBar.text?.trimmingCharacters(in: .whitespaces),
             !searchText.isEmpty else { return }
-            self.searchTableStatus = .searchHistoryWords
-            adapter.changeTableStatusTo(status: searchTableStatus)
-            adapter.sethistorySearch(array: presenter?.filterContentWith(searchText: searchText))
+        self.searchTableStatus = .searchHistoryWords
+        adapter.changeTableStatusTo(status: searchTableStatus)
+        adapter.sethistorySearch(array: presenter?.filterContentWith(searchText: searchText))
         
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        self.searchTableStatus = .firstView
-        adapter.changeTableStatusTo(status: searchTableStatus)
+        if adapter.isSearchArrayEmpty() {
+            self.searchTableStatus = .firstView
+            adapter.changeTableStatusTo(status: searchTableStatus)
+        } else {
+            self.searchTableStatus = .searchResults
+            adapter.changeTableStatusTo(status: searchTableStatus)
+        }
+        
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -128,8 +134,13 @@ extension SearchViewController: UISearchBarDelegate, UISearchControllerDelegate,
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchTableStatus = .firstView
-        adapter.changeTableStatusTo(status: searchTableStatus)
+        if adapter.isSearchArrayEmpty() {
+            self.searchTableStatus = .firstView
+            adapter.changeTableStatusTo(status: searchTableStatus)
+        } else {
+            self.searchTableStatus = .searchResults
+            adapter.changeTableStatusTo(status: searchTableStatus)
+        }
     }
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchTableStatus = .searchHistoryWords
