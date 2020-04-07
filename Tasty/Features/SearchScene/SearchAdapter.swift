@@ -85,7 +85,6 @@ class SearchAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         } else if searchTableStates != .endLoadMore {
             searchTableStates = .searchResults
             recipes.append(contentsOf: array)
-            reloadTableView()
         }
         print(recipes.count)
     }
@@ -106,6 +105,9 @@ class SearchAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         reloadTableView()
     }
     
+    func isSearchArrayEmpty() -> Bool {
+        return recipes.isEmpty
+    }
 //    func numberOfSections(in tableView: UITableView) -> Int {
 //        switch searchTableStates {
 //        case .searchHistoryWords:
@@ -130,7 +132,7 @@ class SearchAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
 //    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == recipes.count - 2, searchTableStates != .endLoadMore {
+        if indexPath.row == recipes.count - 5, searchTableStates != .endLoadMore {
             searchTableStates = .loadMore
         }
         switch searchTableStates {
@@ -175,7 +177,7 @@ class SearchAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         let offset = CGFloat(integerLiteral: 200)
         let bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height;
         if (bottomEdge + offset >= scrollView.contentSize.height) {
-            if searchTableStates == .loadMore , searchWords.isEmpty {
+            if searchTableStates == .loadMore/*, searchWords.isEmpty */{
                      loadMore()
                      searchTableStates = .searchResults
                  }
