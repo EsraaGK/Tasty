@@ -42,6 +42,8 @@
 		CE5090A32434FC8B00027F99 /* SearchProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090A22434FC8B00027F99 /* SearchProtocols.swift */; };
 		CE5090A72435083C00027F99 /* SearchDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090A52435083C00027F99 /* SearchDataTableViewCell.swift */; };
 		CE5090A82435083C00027F99 /* SearchDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5090A62435083C00027F99 /* SearchDataTableViewCell.xib */; };
+		CE8420EC24426622006404B2 /* TastyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8420EB24426622006404B2 /* TastyTests.swift */; };
+		CE8420F424426B31006404B2 /* MockApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8420F324426B31006404B2 /* MockApiModel.swift */; };
 		CE9379B22438FF36007159C0 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9379B12438FF36007159C0 /* UIViewExtension.swift */; };
 		CEC81E92243798210035FE81 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC81E91243798210035FE81 /* UIImageViewExtensions.swift */; };
 		CED191F724360CFD00EECD2D /* entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED191F624360CFD00EECD2D /* entity.swift */; };
@@ -55,8 +57,18 @@
 		CEE793E3243663DB00978856 /* BundleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE793E2243663DB00978856 /* BundleExtensions.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		CE8420EE24426622006404B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE5090462434998D00027F99 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE50904D2434998D00027F99;
+			remoteInfo = Tasty;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		9A31F83E353303E02D646CED /* Pods-Tasty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tasty.debug.xcconfig"; path = "Target Support Files/Pods-Tasty/Pods-Tasty.debug.xcconfig"; sourceTree = "<group>"; };
+		23806041BE776D736FCF2A8E /* Pods-Tasty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tasty.debug.xcconfig"; path = "Target Support Files/Pods-Tasty/Pods-Tasty.debug.xcconfig"; sourceTree = "<group>"; };
 		A446B08CAD757920E1B4424C /* Pods-Tasty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tasty.release.xcconfig"; path = "Target Support Files/Pods-Tasty/Pods-Tasty.release.xcconfig"; sourceTree = "<group>"; };
 		AF05DCBE6528CB11867FED23 /* Pods_Tasty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tasty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE0AA8242435270600748C38 /* DetailsProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsProtocols.swift; sourceTree = "<group>"; };
@@ -96,6 +108,10 @@
 		CE5090A22434FC8B00027F99 /* SearchProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProtocols.swift; sourceTree = "<group>"; };
 		CE5090A52435083C00027F99 /* SearchDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataTableViewCell.swift; sourceTree = "<group>"; };
 		CE5090A62435083C00027F99 /* SearchDataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchDataTableViewCell.xib; sourceTree = "<group>"; };
+		CE8420E924426621006404B2 /* TastyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TastyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE8420EB24426622006404B2 /* TastyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TastyTests.swift; sourceTree = "<group>"; };
+		CE8420ED24426622006404B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE8420F324426B31006404B2 /* MockApiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiModel.swift; sourceTree = "<group>"; };
 		CE9379B12438FF36007159C0 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		CEC81E91243798210035FE81 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
 		CED191F624360CFD00EECD2D /* entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = entity.swift; sourceTree = "<group>"; };
@@ -117,14 +133,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CE8420E624426621006404B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		2DCE397D0F3C3DEE6929C55E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9A31F83E353303E02D646CED /* Pods-Tasty.debug.xcconfig */,
 				A446B08CAD757920E1B4424C /* Pods-Tasty.release.xcconfig */,
+				23806041BE776D736FCF2A8E /* Pods-Tasty.debug.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -162,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				CE5090502434998D00027F99 /* Tasty */,
+				CE8420EA24426622006404B2 /* TastyTests */,
 				CE50904F2434998D00027F99 /* Products */,
 				2DCE397D0F3C3DEE6929C55E /* Pods */,
 				51A076510384784CC2CDA473 /* Frameworks */,
@@ -172,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				CE50904E2434998D00027F99 /* Tasty.app */,
+				CE8420E924426621006404B2 /* TastyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -300,6 +325,16 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		CE8420EA24426622006404B2 /* TastyTests */ = {
+			isa = PBXGroup;
+			children = (
+				CE8420EB24426622006404B2 /* TastyTests.swift */,
+				CE8420ED24426622006404B2 /* Info.plist */,
+				CE8420F324426B31006404B2 /* MockApiModel.swift */,
+			);
+			path = TastyTests;
+			sourceTree = "<group>";
+		};
 		CEC81E932437A22B0035FE81 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,6 +386,24 @@
 			productReference = CE50904E2434998D00027F99 /* Tasty.app */;
 			productType = "com.apple.product-type.application";
 		};
+		CE8420E824426621006404B2 /* TastyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE8420F224426622006404B2 /* Build configuration list for PBXNativeTarget "TastyTests" */;
+			buildPhases = (
+				CE8420E524426621006404B2 /* Sources */,
+				CE8420E624426621006404B2 /* Frameworks */,
+				CE8420E724426621006404B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE8420EF24426622006404B2 /* PBXTargetDependency */,
+			);
+			name = TastyTests;
+			productName = TastyTests;
+			productReference = CE8420E924426621006404B2 /* TastyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -363,6 +416,10 @@
 				TargetAttributes = {
 					CE50904D2434998D00027F99 = {
 						CreatedOnToolsVersion = 11.2.1;
+					};
+					CE8420E824426621006404B2 = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = CE50904D2434998D00027F99;
 					};
 				};
 			};
@@ -380,6 +437,7 @@
 			projectRoot = "";
 			targets = (
 				CE50904D2434998D00027F99 /* Tasty */,
+				CE8420E824426621006404B2 /* TastyTests */,
 			);
 		};
 /* End PBXProject section */
@@ -397,6 +455,13 @@
 				CE50905B2434998F00027F99 /* Assets.xcassets in Resources */,
 				CE5090712434BFB900027F99 /* SearchViewController.xib in Resources */,
 				CE5090862434E5BB00027F99 /* DetailsViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE8420E724426621006404B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,7 +571,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CE8420E524426621006404B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE8420F424426B31006404B2 /* MockApiModel.swift in Sources */,
+				CE8420EC24426622006404B2 /* TastyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CE8420EF24426622006404B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE50904D2434998D00027F99 /* Tasty */;
+			targetProxy = CE8420EE24426622006404B2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		CE5090602434998F00027F99 /* Debug */ = {
@@ -625,7 +707,7 @@
 		};
 		CE5090632434998F00027F99 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9A31F83E353303E02D646CED /* Pods-Tasty.debug.xcconfig */;
+			baseConfigurationReference = 23806041BE776D736FCF2A8E /* Pods-Tasty.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -663,6 +745,49 @@
 			};
 			name = Release;
 		};
+		CE8420F024426622006404B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23806041BE776D736FCF2A8E /* Pods-Tasty.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5TV747AD59;
+				INFOPLIST_FILE = TastyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ibtikar.esraa.gamal.TastyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tasty.app/Tasty";
+			};
+			name = Debug;
+		};
+		CE8420F124426622006404B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5TV747AD59;
+				INFOPLIST_FILE = TastyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ibtikar.esraa.gamal.TastyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tasty.app/Tasty";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -680,6 +805,15 @@
 			buildConfigurations = (
 				CE5090632434998F00027F99 /* Debug */,
 				CE5090642434998F00027F99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE8420F224426622006404B2 /* Build configuration list for PBXNativeTarget "TastyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE8420F024426622006404B2 /* Debug */,
+				CE8420F124426622006404B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

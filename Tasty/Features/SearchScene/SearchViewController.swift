@@ -27,7 +27,6 @@ class SearchViewController: UIViewController {
         instatiateSearchTableView()
         instatiateSearchBar()
         
-        
     }
     
     func instatiateSearchTableView() {
@@ -74,7 +73,7 @@ class SearchViewController: UIViewController {
     }
     
     func searchWith(word: String) {
-        var finalSearchString  = word
+        var finalSearchString = word
         searchTableStatus = .firstView
         adapter.changeTableStatusTo(status: searchTableStatus)
         spinnerView = self.showSpinner(onView: self.view)
