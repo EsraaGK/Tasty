@@ -10,6 +10,7 @@ target 'Tasty' do
 
   pod 'Moya'
   pod 'Kingfisher'
+  pod 'OHHTTPStubs/Swift'
 
   # Pods for Tasty
 
