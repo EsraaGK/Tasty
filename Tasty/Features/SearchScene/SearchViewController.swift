@@ -45,6 +45,11 @@ class SearchViewController: UIViewController {
         searchController.searchBar.placeholder = "Type something here..."
         searchController.hidesNavigationBarDuringPresentation = false
         navigationItem.titleView = searchController.searchBar
+        if #available(iOS 9.1, *) {
+            searchController.obscuresBackgroundDuringPresentation = false
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     func moveToDetails(recipe: Recipe) {
