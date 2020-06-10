@@ -20,6 +20,29 @@ class SearchViewController: UIViewController {
                                      searchWith: searchWith)
     var spinnerView: UIView?
     
+//    override func viewWillAppear(_ animated: Bool) {
+//           super.viewWillAppear(animated)
+//
+//           self.navigationController?.transitionCoordinator?.animate(alongsideTransition: { (_) in
+//               self.navigationController?.navigationBar.shadowOpacity = 0.0
+//           }, completion: { (_) in
+//               self.navigationController?.navigationBar.shadowOpacity = 0.0
+//           })
+//       }
+       
+       override func viewWillDisappear(_ animated: Bool) {
+           super.viewWillDisappear(animated)
+           
+//           self.navigationController?.transitionCoordinator?.animate(alongsideTransition: { (_) in
+//               self.navigationController?.navigationBar.shadowOpacity = 1.0
+//           }, completion: { (_) in
+//               self.navigationController?.navigationBar.shadowOpacity = 1.0
+//           })
+           
+           navigationController?.view.setNeedsLayout() // force update layout
+           navigationController?.view.layoutIfNeeded() // to fix height of the navigation bar
+       }
+    
     override func viewDidLoad() {
         self.title = "Tasty"
         super.viewDidLoad()

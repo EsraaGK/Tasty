@@ -43,6 +43,7 @@
 		CE5090A32434FC8B00027F99 /* SearchProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090A22434FC8B00027F99 /* SearchProtocols.swift */; };
 		CE5090A72435083C00027F99 /* SearchDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5090A52435083C00027F99 /* SearchDataTableViewCell.swift */; };
 		CE5090A82435083C00027F99 /* SearchDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5090A62435083C00027F99 /* SearchDataTableViewCell.xib */; };
+		CE53EBA024918DBB001DA332 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE53EB9F24918DBB001DA332 /* StringExtension.swift */; };
 		CE8420EC24426622006404B2 /* TastyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8420EB24426622006404B2 /* TastyTests.swift */; };
 		CE8420F424426B31006404B2 /* MockApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8420F324426B31006404B2 /* MockApiModel.swift */; };
 		CE9379B22438FF36007159C0 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9379B12438FF36007159C0 /* UIViewExtension.swift */; };
@@ -111,6 +112,7 @@
 		CE5090A22434FC8B00027F99 /* SearchProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProtocols.swift; sourceTree = "<group>"; };
 		CE5090A52435083C00027F99 /* SearchDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataTableViewCell.swift; sourceTree = "<group>"; };
 		CE5090A62435083C00027F99 /* SearchDataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchDataTableViewCell.xib; sourceTree = "<group>"; };
+		CE53EB9F24918DBB001DA332 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		CE8420E924426621006404B2 /* TastyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TastyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8420EB24426622006404B2 /* TastyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TastyTests.swift; sourceTree = "<group>"; };
 		CE8420ED24426622006404B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 				CEC81E91243798210035FE81 /* UIImageViewExtensions.swift */,
 				CED48A3C2437A7AF008AE600 /* UIViewControllerExtensions.swift */,
 				CE9379B12438FF36007159C0 /* UIViewExtension.swift */,
+				CE53EB9F24918DBB001DA332 /* StringExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -553,6 +556,7 @@
 				CE5090782434C10000027F99 /* ApplicationNavigationController.swift in Sources */,
 				CE5090A12434FC0B00027F99 /* SearchPresenter.swift in Sources */,
 				CE1310652437627900A53BC9 /* SearchAdapter.swift in Sources */,
+				CE53EBA024918DBB001DA332 /* StringExtension.swift in Sources */,
 				CE5090942434F9EB00027F99 /* BaseModel.swift in Sources */,
 				CE5090762434C02200027F99 /* ApplicationCoordinator.swift in Sources */,
 				CE50909D2434FB7000027F99 /* BaseModelProtocol.swift in Sources */,
