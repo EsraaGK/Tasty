@@ -46,7 +46,7 @@ class SearchViewController: UIViewController {
         searchController.hidesNavigationBarDuringPresentation = false
         navigationItem.titleView = searchController.searchBar
         if #available(iOS 9.1, *) {
-            searchController.obscuresBackgroundDuringPresentation = false
+            searchController.obscuresBackgroundDuringPresentation = false // the ui is darker when searchbar has focus
         } else {
             // Fallback on earlier versions
         }
