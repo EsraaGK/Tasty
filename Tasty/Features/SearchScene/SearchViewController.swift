@@ -20,13 +20,35 @@ class SearchViewController: UIViewController {
                                      searchWith: searchWith)
     var spinnerView: UIView?
     
+//    override func viewWillAppear(_ animated: Bool) {
+//           super.viewWillAppear(animated)
+//
+//           self.navigationController?.transitionCoordinator?.animate(alongsideTransition: { (_) in
+//               self.navigationController?.navigationBar.shadowOpacity = 0.0
+//           }, completion: { (_) in
+//               self.navigationController?.navigationBar.shadowOpacity = 0.0
+//           })
+//       }
+       
+       override func viewWillDisappear(_ animated: Bool) {
+           super.viewWillDisappear(animated)
+           
+//           self.navigationController?.transitionCoordinator?.animate(alongsideTransition: { (_) in
+//               self.navigationController?.navigationBar.shadowOpacity = 1.0
+//           }, completion: { (_) in
+//               self.navigationController?.navigationBar.shadowOpacity = 1.0
+//           })
+           
+           navigationController?.view.setNeedsLayout() // force update layout
+           navigationController?.view.layoutIfNeeded() // to fix height of the navigation bar
+       }
+    
     override func viewDidLoad() {
         self.title = "Tasty"
         super.viewDidLoad()
         
         instatiateSearchTableView()
         instatiateSearchBar()
-        
         
     }
     
@@ -43,21 +65,14 @@ class SearchViewController: UIViewController {
         searchController.delegate = self
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
-        if #available(iOS 9.1, *) {
-            searchController.obscuresBackgroundDuringPresentation = false
-        } else {
-            // Fallback on earlier versions
-        }
         searchController.searchBar.placeholder = "Type something here..."
-        if #available(iOS 11.0, *) {
-            // Place the search bar in the navigation bar.
-            navigationItem.searchController = searchController
-            // Make the search bar always visible.
-            navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        navigationItem.titleView = searchController.searchBar
+        if #available(iOS 9.1, *) {
+            searchController.obscuresBackgroundDuringPresentation = false // the ui is darker when searchbar has focus
         } else {
             // Fallback on earlier versions
         }
-        definesPresentationContext = true
     }
     
     func moveToDetails(recipe: Recipe) {
@@ -74,7 +89,7 @@ class SearchViewController: UIViewController {
     }
     
     func searchWith(word: String) {
-        var finalSearchString  = word
+        var finalSearchString = word
         searchTableStatus = .firstView
         adapter.changeTableStatusTo(status: searchTableStatus)
         spinnerView = self.showSpinner(onView: self.view)
