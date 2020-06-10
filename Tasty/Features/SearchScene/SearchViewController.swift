@@ -42,21 +42,9 @@ class SearchViewController: UIViewController {
         searchController.delegate = self
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
-        if #available(iOS 9.1, *) {
-            searchController.obscuresBackgroundDuringPresentation = false
-        } else {
-            // Fallback on earlier versions
-        }
         searchController.searchBar.placeholder = "Type something here..."
-        if #available(iOS 11.0, *) {
-            // Place the search bar in the navigation bar.
-            navigationItem.searchController = searchController
-            // Make the search bar always visible.
-            navigationItem.hidesSearchBarWhenScrolling = false
-        } else {
-            // Fallback on earlier versions
-        }
-        definesPresentationContext = true
+        searchController.hidesNavigationBarDuringPresentation = false
+        navigationItem.titleView = searchController.searchBar
     }
     
     func moveToDetails(recipe: Recipe) {
